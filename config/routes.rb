@@ -44,5 +44,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller=>"front", :action=>"index"
   map.connect 'program', :controller=>"front", :action=>"program"
   map.connect 'contact', :controller=>"front", :action=>"contact"
+  map.connect 'venue', :controller=>"front", :action=>"venue"
+  map.connect 'sponsorship', :controller=>"front", :action=>"sponsorship"
+  map.connect 'propose_a_talk', :controller=>"front", :action=>"call_for_participation"
 
 end
