@@ -1,0 +1,37 @@
+!!!
+%html
+  %head
+    %title= @website_title
+    = stylesheet_link_tag "960.css"
+    = stylesheet_link_tag *(['global'] + @stylesheets)
+  %body
+    .container_12
+      .grid_12#header.nomargin
+        #nav_header
+          #menu
+            %ul
+              %li 
+                %a{:href=>"/"} NEWS           
+              %li 
+                %a{:href=>"/program"} PROGRAM         
+              %li 
+                %a{:href=>"/venue"} VENUE
+              %li 
+                %a{:href=>"/sponsorship"} SPONSORSHIP           
+              %li 
+                %a{:href=>"/contact"} CONTACT US        
+        #call_to_action
+          %a{:href=>"/propose_talk"}           
+        #title 
+          %img{:src=>"/images/title.png"}
+      .clear
+      .grid_12.divider.nomargin
+      .clear
+
+      = yield	
+   
+      .clear
+      .grid_12.divider.nomargin
+      .clear
+
+      .grid_12#footer
