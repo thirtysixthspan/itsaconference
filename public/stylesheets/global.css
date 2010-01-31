@@ -29,6 +29,10 @@ ul {
   text-align:center;
 }
 
+.margined {
+  margin:auto;
+}
+
 .cleared {
 	 clear:both;
 }
@@ -143,9 +147,17 @@ img {
   height: 220px;
 }
 
+#theme_sidebar {
+  background-color: #b8ac83;
+  margin:0px;
+  width:320px;
+}
+
+
 .theme_panel {
   background-image:url('/images/theme_panel.png');
   height: 140px;
+  width: 220px;
   position: relative;
 }
 
@@ -466,6 +478,36 @@ img {
 #footer {
   background: #ffffff url('/images/footer_bg.png') top center repeat-x;
   height: 120px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0px; 
+  margin: 0px;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer ul {
+  list-style-type: none;
+  padding: 2px 0 0 20px;
+}
+
+#footer li {
+  color: #aa1111;
+  font-size: .75em;
+  padding: 5px 0 0 0;
+}
+
+#footer li.right {
+  text-align:right;
+}
+
+.shift_left {
+  margin: 0 0 0 -25px;
 }
 
 #schedule h1 {
@@ -1022,3 +1064,64 @@ img {
     border: 1px solid #000;	
 }
 
+#privacy h1 {
+	font-size: 1.25em;
+	color: #a62222;
+    padding:0;
+    margin:0 0 0px 0px;
+    text-align:center;
+}
+
+#privacy p {
+	font-size: .75em;
+	color: #000;
+    padding:0;
+    margin:10px 0 0 0px;
+}
+
+
+#proposal p, #proposal li  {
+	font-size: .8em;
+	color: #000;
+	margin: 5px 0 0 0;
+}
+
+#proposal h1 {
+	font-size: 1em;
+	color: #fff;
+  text-align:center;
+}
+
+#proposal fieldset {
+    background: #ffffff url('/images/content_bg.png') top center repeat-x;
+    padding:10px;
+    margin:10px;
+}
+
+#proposal legend {
+	font-size: .75em;
+	background-color: #fff;
+  padding:2px 20px 2px 20px;
+  border: 1px solid #000;
+  margin: 0 10px 0 0;
+  float:right;
+  
+  position:absolute;
+}
+
+#proposal label {
+}
+
+.proposal_form input, .proposal_form textarea {
+  width: 100%;
+  display: block;   
+}
+
+.fieldWithErrors, .fieldWithErrors textarea, .fieldWithErrors input {
+	background: #f88;
+}
+
+
+#proposal label.desc {
+  color: #888;
+}

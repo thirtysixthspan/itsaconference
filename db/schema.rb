@@ -9,7 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100127083718) do
+ActiveRecord::Schema.define(:version => 20100131065801) do
+
+  create_table "presentations", :force => true do |t|
+    t.string   "author"
+    t.string   "affiliation"
+    t.string   "email"
+    t.text     "biography"
+    t.string   "photo"
+    t.string   "title"
+    t.string   "theme"
+    t.text     "abstract"
+    t.text     "comments"
+    t.string   "agreed_to_terms", :default => "no"
+    t.string   "status",          :default => "pending review"
+    t.datetime "start_time"
+    t.integer  "duration"
+    t.string   "slides"
+    t.string   "video"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "value"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "typus_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false

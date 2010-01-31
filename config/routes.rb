@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :presentations
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -46,11 +48,17 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'contact', :controller=>"front", :action=>"contact"
   map.connect 'venue', :controller=>"front", :action=>"venue"
   map.connect 'sponsorship', :controller=>"front", :action=>"sponsorship"
-  map.connect 'propose_a_talk', :controller=>"front", :action=>"call_for_participation"
+  map.connect 'propose_talk', :controller=>"front", :action=>"call_for_proposals"
   map.connect 'error', :controller=>"error"
+  map.connect 'acknowledgements', :controller=>"front", :action=>"acknowledgements"
+  map.connect 'privacy_policy', :controller=>"front", :action=>"privacy_policy"
+  map.connect 'terms_of_use', :controller=>"front", :action=>"terms_of_use"
   
-  map.error '*url',
-      :controller => 'error',
-      :action => 'error_404'
+  map.resources :presentations
+  map.resources :ratings
+  
+  #map.error '*url',
+  #    :controller => 'error',
+  #    :action => 'error_404'
 
 end

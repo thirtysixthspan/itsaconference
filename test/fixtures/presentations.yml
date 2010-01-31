@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  abstract: MyString
+  status: MyString
+  comments: MyString
+  start_time: 2010-01-31 00:19:22
+  duration: 1
+  slides: MyString
+  video: MyString
+  biography: MyString
+  photo: MyString
+
+two:
+  title: MyString
+  abstract: MyString
+  status: MyString
+  comments: MyString
+  start_time: 2010-01-31 00:19:22
+  duration: 1
+  slides: MyString
+  video: MyString
+  biography: MyString
+  photo: MyString

@@ -1,0 +1,19 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Presentation:
+  fields:
+    list: title, abstract, status, comments, start_time, duration, slides, video, biography, photo
+    form: title, abstract, status, comments, start_time, duration, slides, video, biography, photo
+    show: id, title, abstract, status, comments, start_time, duration, slides, video, biography, photo, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: ratings
+  filters:
+  search:
+  application: itsaconference
+  description:

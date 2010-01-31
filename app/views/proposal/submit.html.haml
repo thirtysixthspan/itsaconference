@@ -1,0 +1,83 @@
+.grid_12#proposal
+
+  .grid_2.spacer
+
+  .grid_8
+    
+    - form_for( :presentation, @presentation, @person, :url => { :action => "create" }) do |f|
+      = f.error_messages
+   
+      %fieldset  
+        %legend PROPOSE A TALK
+    
+        %p Thank you for your interest in submitting a proposal! If you propose a talk, and it is selected, you will receive a free conference registration. You may propose more than one talk, but, at most, one talk will be selected for presentation. Talks will be live streamed online and digitally recorded. A video of your presentation will be posted online after the event.
+        %p Proposals will be accepted until at 11:59pm, February 28th, 2010. Notifications of acceptance or rejection will be made on March 5th, 2010. 
+        %p Please complete the form below providing as much detail about your proposal within the given space limits. All fields are mandatory.
+
+
+      %fieldset.proposal_form  
+        %legend AUTHOR
+
+        %p
+          %label{:for => 'author'} Full Name
+          = f.text_field :author
+        
+        %p
+          %label{:for => 'affiliation'} Professional Affiliation
+          = f.text_field :affiliation
+
+        %p
+          %label{:for => 'email'} Email
+          = f.text_field :email
+
+        %p
+          %label{:for => 'biography'} Biography
+          %label.desc (100 words maximum)
+          = f.text_area :biography, :cols=>70, :rows=>'4'
+
+        %p
+          %label{:for => 'photo'} Photo
+          %label.desc (A picture of your face at least 120x120 pixels in size)
+          = f.text_field :photo
+
+      %fieldset.proposal_form
+        %legend PRESENTATION
+        %p
+          %label{:for => 'title'} Talk Title
+          = f.text_field :title
+
+        %p
+          %label{:for => 'theme'} Talk Theme
+          %label.desc (<a target="_blank" href="/themes">review themes</a>)           
+          = f.select :theme, ['Ruby', 'Rails 3', 'NoSQL', 'Servers'] 
+                
+        %p
+          %label{:for => 'abstract'} Abstract
+          %label.desc (200 words maximum)
+          = f.text_area :abstract, :cols=>70, :rows=>'8'
+
+        %p
+          %label{:for => 'comments'} Comments
+          %label.desc (Anything you want to communicate to the review committee)
+          = f.text_area :comments, :cols=>70, :rows=>'4'
+
+   
+      %fieldset  
+        %legend TERMS AND CONDITIONS
+        
+        %p By proposing a talk you are agreeing that
+        %ol
+          %li you will attend the event and be available to present your talk at the scheduled time. 
+          %li you agree to participate in a video interview conducted during the course of the conference. 
+          %li you represent and warrant that the content of your presentation shall not infringe on any copyright or any other third-party right nor violate any applicable law or regulation. 
+          %li you give the event producer (The Oklahoma City Coworking Collaborative, LLC) and its designees the right to use your name, title, affiliation, likeness, image, voice, appearance, performance, presentation title, presentation abstract, and presentation slides whether recorded on or transferred to videotape, film, slides, photographs, audio tapes, or other media, now known or later developed, in connection with this and subsequent events. 
+          %li you expressly release and indemnify the producer and its officers, employees, agents and designees from any and all claims known and unknown arising out of or in any way connected with the above granted uses and representations.
+        
+        %p  
+          <table><tr><td>
+          = f.check_box :agreed_to_terms
+          </td><td>I agree to theses Terms and Conditions</td></tr></table>
+                
+        %p= f.submit 'Submit Proposal'
+
+  .grid_2.spacer
