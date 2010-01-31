@@ -17,4 +17,15 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  unless  ActionController::Base.consider_all_requests_local
+    rescue_from Exception, :with => :render_404
+  end
+
+  private
+
+  def render_404
+    render :template => 'errors/error_404', :status => :not_found
+  end
+  
+  
 end
