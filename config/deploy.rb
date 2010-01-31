@@ -15,7 +15,8 @@ ssh_options[:forward_agent] = true
 namespace :deploy do
   [:restart].each do |default_task|
     task default_task do 
-        # ... ahh, silence!
+      run "/etc/init.d/reddirtrubyconf stop"
+      run "/etc/init.d/reddirtrubyconf start"
     end
   end
 end

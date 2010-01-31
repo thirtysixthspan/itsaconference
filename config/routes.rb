@@ -50,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'error', :controller=>"error"
   
   map.error '*url',
-      :controller => 'errors',
+      :controller => 'error',
       :action => 'error_404'
 
 end
