@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   private
 
   def render_404
-    render :template => 'errors/error_404', :status => :not_found
+    render :template => 'error/error_404', :status => :not_found
   end
   
   

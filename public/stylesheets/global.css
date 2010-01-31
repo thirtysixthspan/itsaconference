@@ -1002,3 +1002,22 @@ img {
     border: 1px solid #000;	
 }
 
+
+#error {
+    text-align:center;
+    margin: auto;
+}
+
+#error h1 {
+	font-size: 1em;
+	color: #a62222;
+    padding:0;
+    margin:0;
+}
+
+#error img {
+    width:250px;
+    padding: 10px;	
+    border: 1px solid #000;	
+}
+
