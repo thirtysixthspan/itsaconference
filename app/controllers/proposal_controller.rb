@@ -8,17 +8,23 @@ class ProposalController < ApplicationController
   def create
 
     @presentation = Presentation.new(params[:presentation])
+
+    @presentation.errors.add(:photo) if (params[:presentation][:photo] == "")  
+
     @presentation.save
+        
+    if @presentation.errors.empty? {    
+      /(\.\w+$)/.match(params[:presentation][:photo].original_filename)
+      filename = "#{@presentation.id}#{$1}"
 
-    /(\.\w+$)/.match(params[:presentation][:photo].original_filename)
-    filename = "#{@presentation.id}#{$1}"
-
-    file = File.open("#{RAILS_ROOT}/public/speaker_photos/"+filename, "wb")
-    file.write(params[:presentation][:photo].read)
-    file.close()
-    @presentation.photo = "/speaker_photos/#{filename}"
-
-    if @presentation.save
+      file = File.open("#{RAILS_ROOT}/public/speaker_photos/"+filename, "wb")
+      file.write(params[:presentation][:photo].read)
+      file.close()
+      @presentation.photo = "/speaker_photos/#{filename}"
+      @presentation.save
+    }
+    
+    if @presentation.errors.empty?
       redirect_to :action=>:completed  
     else
       render :action => "submit"
