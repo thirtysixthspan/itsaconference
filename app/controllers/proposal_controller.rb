@@ -9,11 +9,13 @@ class ProposalController < ApplicationController
 
     @presentation = Presentation.new(params[:presentation])
 
-    @presentation.errors.add(:photo) if (params[:presentation][:photo] == "")  
+    if (params[:presentation][:photo] == "")
+      @presentation.errors.add(:photo) 
+    end
 
     @presentation.save
         
-    if @presentation.errors.empty? {    
+    if @presentation.errors.empty?
       /(\.\w+$)/.match(params[:presentation][:photo].original_filename)
       filename = "#{@presentation.id}#{$1}"
 
@@ -22,7 +24,7 @@ class ProposalController < ApplicationController
       file.close()
       @presentation.photo = "/speaker_photos/#{filename}"
       @presentation.save
-    }
+    end
     
     if @presentation.errors.empty?
       redirect_to :action=>:completed  
