@@ -1,62 +1,51 @@
 .grid_12#content#cfp
   
-  .grid_8
+  .grid_1
+    .spacer
+  .grid_10
     .spacer
     %h1 CALL FOR PROPOSALS
 
-    %p At Red Dirt RubyConf, we’re excited to be trying out a new presentation format. We’ve preselected some hot themes we would like to have speeches on. These are broad topics covering a lot of landscape for our favorite language and the related tools. For each theme, we will select a 30 minute opening presentation to set the stage for the topic. We will then follow-up with a few 10 minute tightly focused topic speeches. This format has multiple advantages. First, presenters for a theme can handle Q & A as a team. We’ve also been able to tailor the trainings following the conference to these topics so attendees can learn valuable information and put it right to use. We hope this improves the conference experience for everyone and you can help by sending in your ideas below.
+    %p We are excited to announce the first Red Dirt Ruby Conference to be held, May 6th and 7th, 2010. Our goal is to create a unique conference experience within the Ruby community. We have crafted a two-day event that will provide focused and up-to-date content and related training in four of the most important areas of active development in the Ruby community, the Ruby language itself, the Ruby on Rails framework, NoSQL databases, and web servers and hosting. We are also very happy to announce that Dave Thomas of the Pragmatic Programmers and Jim Weirich of EdgeCase will participate as keynote speakers. 
+    
+    %p We also expect to have a vibrant and interactive hallway track. We have set aside a dedicated space for casual discussions, coding sessions, impromptu presentations, and an evening hackfest. To keep you going all day, we are including breakfast, lunch, snacks and dinner as part of the Red Dirt Ruby Conference experience.
+    
+    %p The Red Dirt Ruby Conference will be held in downtown Oklahoma City, which is conveniently located in both the center of the midwest and the nation itself, making it an ideal location for a national conference. It is within a days drive from Dallas, Kansas City, Austin, Saint Louis, Memphis, Albuquerque, and Denver. Convenient direct flights from cities on both coasts to the Will Rogers International Airport are also available.
+    
+    %p 
+      We are actively seeking talk proposals centered on these four areas:
+      %ol
+        %li 
+          .theme_title 
+            Ruby  
+            .theme_description : The Ruby language still has the power to surprise us. This theme is focused on Ruby syntax, gems and good development practices.
 
+        %li 
+          .theme_title 
+            Rails 3  
+            .theme_description : Ruby on Rails is crossing a huge milestone. This theme is centered on topics such routing, metal, the new response system, and advanced queries.
+        
+        %li 
+          .theme_title 
+            NoSQL  
+            .theme_description : Database choice affects application performance and scalability. This theme will focus on databases such as MognoDB, Riak, Redis, and Tokyo Cabinet.
+        
+        %li 
+          .theme_title 
+            Servers  
+            .theme_description : Ruby is well suites for web based applications. This theme will focus on tools such as Rack, Unicorn, EventMachine, Resque and AWS.  
+      
+                
+    %p With the aim of maximizing the value for attendees, we have developed a uniqe conference format that pairs themed conference presentations on day one with related training on day two of the event. 
+    
+    %p Each conference session will consist of four talks focused on a single theme. A 30 minute talk will lead off the session, provide an introduction to the theme, and cover one or more of the most important developments or approaches to date. Then, three 15 minute talks will follow, each covering a different development, application or approach within the area. The session will end with a joint question, answer and discussion with the panel of speakers. This format affords both breadth and depth in the session content as well as interaction between the speakers and the audience.
+    
+    %p For each theme, a three hour training session will follow on the second day of the event. The training sessions will give you the opportunity to get hands-on under the supervision and guidance of experienced trainers. By presenting the training on the second day of the event, you will have already had an overview of the most important developments within the area the day prior, which we hope will maximize the effectiveness of the training.    
+     
+    %p Our aim is to improve the conference experience for everyone, and we would ask for your support toward this end. Please consider submitting a talk proposal and attending what will surely be a unique, and hopefully valuable conference going experience. 
+    
+     
+    %h1= link_to 'SUBMIT A TALK NOW', :controller=>'proposal', :action=>'submit'
   
-  .grid_4#theme_sidebar
-    .spacer
-    .theme_panel.margined
-      .theme_icon
-        %img{:src=>"/images/ruby_icon.png", :class=>"centered"}
-      .theme_text
-        %h1 RUBY
-        %p 
-          The Ruby language still has the power to surprise us.
-          This theme is focused on Ruby syntax, gems and good development practices.
-      .theme_drill_down 
-        %a{:href=>"/themes/ruby"} More
-
-    .spacer.clear
-
-    .theme_panel.margined
-      .theme_icon
-        %img{:src=>"/images/rails_icon.png"}
-      .theme_text
-        %h1 RAILS 3
-        %p 
-          Ruby of Rails is crossing a huge milestone. 
-          This theme is centered on topics such routing, metal, the new response system, and advanced queries.
-      .theme_drill_down 
-        %a{:href=>"/themes/rails3"} More
-
-    .spacer.clear
-
-    .theme_panel.margined
-      .theme_icon
-        %img{:src=>"/images/nosql_icon.png"}
-      .theme_text
-        %h1 NoSQL
-        %p 
-          Database choice affects application performance and scalability.
-          This theme will focus on databases such as MognoDB, Riak, Redis, and Tokyo Cabinet.  
-      .theme_drill_down 
-        %a{:href=>"/themes/nosql"} More
-
-    .spacer.clear
-
-    .theme_panel.margined
-      .theme_icon
-        %img{:src=>"/images/web_icon.png"}
-      .theme_text
-        %h1 SERVERS
-        %p 
-          Ruby is well suites for web based applications. 
-          This theme will focus on tools such as Rack, Unicorn, EventMachine, Resque and AWS.  
-      .theme_drill_down 
-        %a{:href=>"/themes/servers"} More
-
+  
     .spacer.clear

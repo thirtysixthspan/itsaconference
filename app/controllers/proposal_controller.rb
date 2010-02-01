@@ -6,10 +6,19 @@ class ProposalController < ApplicationController
   end
 
   def create
+
     @presentation = Presentation.new(params[:presentation])
+    @presentation.save
+
+    /(\.\w+$)/.match(params[:presentation][:photo].original_filename)
+    filename = "#{@presentation.id}#{$1}"
+
+    file = File.open("#{RAILS_ROOT}/public/speaker_photos/"+filename, "wb")
+    file.write(params[:presentation][:photo].read)
+    file.close()
+    @presentation.photo = "/speaker_photos/#{filename}"
 
     if @presentation.save
-      flash[:notice] = 'Presentation was successfully created.'
       redirect_to :action=>:completed  
     else
       render :action => "submit"

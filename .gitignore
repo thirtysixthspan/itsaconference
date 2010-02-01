@@ -13,3 +13,4 @@ doc/app
 doc/plugins
 doc/*.dot
 db/*.sqlite3
+public/speaker_photos/*
