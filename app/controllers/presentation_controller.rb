@@ -1,7 +1,7 @@
 class PresentationController < ApplicationController
 
   def index 
-    @presentations = Presentation.find_by_status(:all, 'approved')    
+    @presentations = Presentation.find(:all, :conditions => ['status = "approved"'])    
   end
 
   def talks
