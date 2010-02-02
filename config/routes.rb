@@ -41,11 +41,13 @@ ActionController::Routing::Routes.draw do |map|
   #this goes first for priority
   map.connect 'theme/:theme_link', :controller=>"theme", :action=>"show"
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+#  map.connect ':controller/:action/:id'
+#  map.connect ':controller/:action/:id.:format'
 
   
   map.root :controller=>"front", :action=>"index"
+
+  map.connect 'proposal/:action', :controller=>"proposal" 
   map.connect 'program', :controller=>"front", :action=>"program"
   map.connect 'contact', :controller=>"front", :action=>"contact"
   map.connect 'venue', :controller=>"front", :action=>"venue"
