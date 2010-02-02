@@ -5,9 +5,9 @@
 
 Presentation:
   fields:
-    list: title, abstract, status, comments, start_time, duration, slides, video, biography, photo
-    form: title, abstract, status, comments, start_time, duration, slides, video, biography, photo
-    show: id, title, abstract, status, comments, start_time, duration, slides, video, biography, photo, created_at, updated_at
+    list: title, author, theme, format, status
+    form: title, author, email, affiliation, theme, format, abstract, comments, biography, photo, status, start_time, duration, slides, video
+    show: id, title, author, email, affiliation, theme, format, abstract, comments, biography, photo, status, start_time, duration, slides, video, created_at, updated_at
   actions:
     index:
     edit:
@@ -17,3 +17,5 @@ Presentation:
   search:
   application: itsaconference
   description:
+
+

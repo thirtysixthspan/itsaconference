@@ -1,0 +1,10 @@
+.news_item
+  %span{:class=>'news_title'}= @news_item.title 
+  %span{:class=>'news_stamp'}
+    (Posted by 
+    =@news_item.author 
+    on 
+    = @news_item.post_date.strftime("%b %d, %Y")
+    )
+  %span{:class=>'news_text'}= @news_item.post
+   

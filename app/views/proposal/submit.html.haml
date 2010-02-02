@@ -7,16 +7,16 @@
     - form_for( :presentation, @presentation, @person, :url => { :action => "create" }, :html => {:multipart=>true}) do |f|
       = f.error_messages
    
+      %h3 PROPOSE A TALK
       %fieldset  
-        %legend PROPOSE A TALK
     
         %p Thank you for your interest in submitting a proposal! If you propose a talk, and it is selected, you will receive a free conference registration. You may propose more than one talk, but, at most, one talk will be selected for presentation. Talks will be live streamed online and digitally recorded. A video of your presentation will be posted online after the event.
         %p Proposals will be accepted until at 11:59pm, February 28th, 2010. Notifications of acceptance or rejection will be made on March 5th, 2010. 
         %p Please complete the form below providing as much detail about your proposal within the given space limits. All fields are mandatory.
 
-
+      %h3 AUTHOR
       %fieldset.proposal_form  
-        %legend AUTHOR
+        
 
         %p
           %label{:for => 'author'} Full Name
@@ -40,8 +40,8 @@
           %label.desc (Upload an image of your face at least 120x120 pixels in size)
           = f.file_field :photo
 
+      %h3 PRESENTATION
       %fieldset.proposal_form
-        %legend PRESENTATION
         %p
           %label{:for => 'title'} Talk Title
           = f.text_field :title
@@ -62,8 +62,8 @@
           = f.text_area :comments, :cols=>70, :rows=>'4'
 
    
+      %h3 TERMS AND CONDITIONS
       %fieldset  
-        %legend TERMS AND CONDITIONS
         
         %p By proposing a talk you are agreeing that
         %ol

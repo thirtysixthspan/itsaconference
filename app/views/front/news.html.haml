@@ -1,0 +1,15 @@
+.grid_12#content#news.padded
+  .spacer
+  .grid_1
+    .spacer
+  .grid_10
+    %h1 NEWS
+    %hr
+    .news_panel
+      - @news.each do |@news_item|
+        = render :partial => "news_item", :locals => { :news_item => @news_item }
+      
+  .grid_1
+    .spacer
+
+  .spacer.clear

@@ -1,0 +1,28 @@
+.grid_12
+  .grid_2.alpha
+    .spacer
+
+  .grid_8#head.dashed_bottom_border
+    .grid_2.alpha    
+      %img{:src=>"#{@theme.icon}"}
+      %h1= @theme.title
+    .grid_6.omega    
+      %p= @theme.one_line_description
+    .clear 
+
+.grid_12#body
+  .grid_1
+    .spacer
+
+  .grid_10
+    %p= @theme.long_description
+  
+    .spacer.clear
+   
+    =link_to 'Back', :back 
+    ||
+    =link_to 'Propose a talk for this theme',:controller=>:proposal, :action=>"submit"
+
+  .spacer.clear   
+    
+

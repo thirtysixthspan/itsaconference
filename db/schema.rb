@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100131065801) do
+ActiveRecord::Schema.define(:version => 20100202100157) do
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "post"
+    t.datetime "post_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "presentations", :force => true do |t|
     t.string   "author"
@@ -21,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20100131065801) do
     t.string   "theme"
     t.text     "abstract"
     t.text     "comments"
+    t.string   "format",          :default => "proposed"
     t.string   "agreed_to_terms", :default => "no"
     t.string   "status",          :default => "pending review"
     t.datetime "start_time"
@@ -36,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20100131065801) do
     t.integer  "rateable_id"
     t.string   "rateable_type"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "icon"
+    t.string   "one_line_description"
+    t.text     "short_description"
+    t.text     "long_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,6 +12,8 @@ class CreatePresentations < ActiveRecord::Migration
       t.text :abstract
       t.text :comments
 
+      t.string :format, :default=>'proposed'      
+
       t.string :agreed_to_terms, :default=> 'no'
 
       t.string :status, :default=>'pending review'

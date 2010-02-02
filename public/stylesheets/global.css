@@ -21,6 +21,10 @@ ul {
   margin:0px;
 }
 
+.umph {
+ color: #b00;	
+}
+
 .spacer {
   height:20px;
 }
@@ -36,6 +40,8 @@ ul {
 .cleared {
 	 clear:both;
 }
+
+
 
 .left {
 	float:left;
@@ -235,8 +241,8 @@ img {
 
 #conference p {
 	font-size: .75em;
-	color: #000000;
-    padding:10px 40px 10px 10px;
+	color: #777;
+    padding:0px 20px 5px 10px;
     margin:0;
 }
 
@@ -354,7 +360,7 @@ img {
 .keynote_drill_down.right {
   position: absolute;
   right:10px;
-  bottom:10px;
+  bottom:-10px;
 }
 
 .keynote_drill_down.left {
@@ -375,7 +381,7 @@ img {
 
 #news {
 	min-height: 250px;		
-    background: #ffffff url('/images/content_bg.png') top center repeat-x;
+  background: #ffffff url('/images/content_bg.png') top center repeat-x;
 }
 
 #news hr {
@@ -409,6 +415,7 @@ img {
   position: relative;
   margin: 15px 0 15px 0;
   min-height: 50px;
+  padding: 0 0 0px 0;
 }
 
 .news_drill_down {
@@ -1110,7 +1117,7 @@ img {
     border: 1px solid #000;	
 }
 
-#privacy h1 {
+#privacy h1, #terms h1 {
 	font-size: 1.25em;
 	color: #a62222;
     padding:0;
@@ -1118,7 +1125,14 @@ img {
     text-align:center;
 }
 
-#privacy p {
+#privacy h2, #terms h2 {
+	font-size: 1em;
+	color: #000;
+    padding:0;
+    margin:10px 0 0px 0px;
+}
+
+#privacy p, #terms p {
 	font-size: .75em;
 	color: #000;
     padding:0;
@@ -1149,9 +1163,7 @@ img {
 	background-color: #fff;
   padding:2px 20px 2px 20px;
   border: 1px solid #000;
-  margin: 0 10px 0 0;
-  float:right;
-  
+  margin: 0 10px 0 0;  
   position:absolute;
 }
 
@@ -1200,5 +1212,82 @@ img {
   padding: 10px 0 0 0;
 }
 
+#theme_drill_down h1 {
+	font-size: 1.25em;
+	color: #a62222;
+  padding:0;
+  margin:0 0 0px 0px;
+  left:300px;
+  text-align:left;
+}
+
+#theme_drill_down .dashed_bottom_border {
+  border-bottom: 1px dashed #f00;
+}
+
+#theme_drill_down .solid_bottom_border {
+  border-bottom: 1px solid #000;
+}
 
 
+#theme_drill_down #head p {
+	font-size: .9em;
+	color: #000;
+  padding:0;
+  margin:10px 0 0 0px;
+  text-indent: 0em;
+}
+
+#theme_drill_down #body p {
+	font-size: .9em;
+	color: #000;
+  padding:0;
+  margin:10px 0 0 0px;
+  text-indent: 2em;
+}
+
+
+#presentation h1 {
+	font-size: 1em;
+	color: #000;
+	padding:0;
+  margin:0 0 0px 0px;
+}
+
+#presentation h2 {
+	font-size: 0.9em;
+	color: #f00;
+  padding:0;
+  margin:0px 0 0px 0px;
+}
+
+#presentation h3 {
+	font-size: 0.8em;
+	color: #000;
+  padding:0;
+  margin:0px 0 0px 0px;
+}
+
+.news_title {
+	font-size: 1.1em;
+	color: #a62222;
+	padding:0;
+  margin:0 0 0px 0px;
+}
+
+.news_stamp {
+	font-size: 0.65em;
+	color: #777;
+  padding:0;
+  margin:0px 0 0px 0px;
+  display:inline;
+}
+
+
+.news_text {
+	font-size: 0.8em;
+	color: #000;
+  padding:0;
+  margin:0px 0 0px 0px;
+  text-indent: 2em;
+}

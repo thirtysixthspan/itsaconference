@@ -37,11 +37,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
+
+  #this goes first for priority
+  map.connect 'theme/:theme_link', :controller=>"theme", :action=>"show"
+
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
   
   map.root :controller=>"front", :action=>"index"
   map.connect 'program', :controller=>"front", :action=>"program"
@@ -55,8 +57,18 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'privacy_policy', :controller=>"front", :action=>"privacy_policy"
   map.connect 'terms_of_use', :controller=>"front", :action=>"terms_of_use"
   
+  map.connect 'keynotes', :controller=>"presentation", :action=>"keynotes"
+  map.connect 'talks', :controller=>"presentation", :action=>"talks"
+  map.connect 'training', :controller=>"presentation", :action=>"training"
+
+  map.connect 'news', :controller=>"front", :action=>"news"
+  
+  
   map.resources :presentations
   map.resources :ratings
+  map.resources :themes
+  map.resources :news
+  
   
   #map.error '*url',
   #    :controller => 'error',

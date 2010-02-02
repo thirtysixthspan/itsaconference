@@ -1,0 +1,30 @@
+.grid_12#presentation
+  .grid_2
+    .spacer
+
+  .grid_8#head.dashed_bottom_border
+    %h1= @presentation.title
+    %h2= @presentation.author
+    %h3= @presentation.affiliation
+      
+  .clear 
+
+.grid_12#body
+  .grid_2
+    .spacer
+
+  .grid_8.dashed_bottom_border
+
+    %p
+      Abstract --
+      = @presentation.abstract
+    
+    .spacer.clear
+    
+    %p 
+      %img{:src=>"#{@presentation.photo}", :align=>"right"}
+      Biography -- 
+      =@presentation.biography
+
+    .spacer.clear
+      
