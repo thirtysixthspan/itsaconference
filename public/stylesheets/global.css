@@ -1,3 +1,5 @@
+/* @override http://localhost:3000/stylesheets/global.css?1265168846 */
+
 body {
   background: #ffffff url('/images/background.png') top center repeat-y;
   font-family: Arial, Helvetica, sans-serif;
@@ -1080,7 +1082,7 @@ img {
 	color: #000;
     padding:0;
     margin:10px 0 0 0px;
-    text-indent: 2em;
+  text-indent: 0;
 }
 
 
