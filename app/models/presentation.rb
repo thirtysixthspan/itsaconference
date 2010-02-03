@@ -6,8 +6,6 @@ class Presentation < ActiveRecord::Base
   validates_presence_of :author
   validates_length_of :author, :in => 6..100, :too_short => "Your name is too short.", :too_long => "Your name is too long."
 
-  validates_presence_of :affiliation
-
   validates_presence_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
     
