@@ -1,8 +1,15 @@
-/* @override http://localhost:3000/stylesheets/global.css?1265168846 */
+/* @override 
+	http://localhost:3000/stylesheets/global.css?1265168846
+	http://reddirtrubyconf.com/stylesheets/global.css?1265224640
+*/
 
 body {
   background: #ffffff url('/images/background.png') top center repeat-y;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  text-indent: 0;
 }
 
 h1 {
@@ -1241,11 +1248,11 @@ img {
 }
 
 #theme_drill_down #body p {
-	font-size: .9em;
-	color: #000;
+  font-size: .9em;
+  color: #000;
   padding:0;
   margin:10px 0 0 0px;
-  text-indent: 2em;
+  text-indent: 0;
 }
 
 
