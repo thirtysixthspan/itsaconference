@@ -10,7 +10,7 @@ set :user, "deployer"
 
 server "reddirtrubyconf.com", :app, :web, :db, :primary => true
 
-ssh_options[:forward_agent] = true
+#ssh_options[:forward_agent] = true
 
 namespace :deploy do
   [:restart].each do |default_task|
