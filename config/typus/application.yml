@@ -6,7 +6,7 @@
 Presentation:
   fields:
     list: title, author, theme, format, status
-    form: title, author, email, affiliation, theme, format, abstract, comments, biography, photo, status, start_time, duration, slides, video
+    form: title, author, email, affiliation, theme, format, abstract, comments, biography, photo, status, start_time, duration, slides, video, agreed_to_terms
     show: id, title, author, email, affiliation, theme, format, abstract, comments, biography, photo, status, start_time, duration, slides, video, created_at, updated_at
   actions:
     index:

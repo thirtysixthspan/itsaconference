@@ -13,6 +13,11 @@ class PresentationController < ApplicationController
     @presentations = Presentation.find(:all,:conditions => ['format = "training"'])    
     render :action=>:index
   end
+  
+  def detail
+    @presentations = Presentation.find(:all,:conditions=>['id = ?', params[:id]])    
+    render :action=>:index
+  end  
 
   def keynote
     redirect_to :action=>:keynote

@@ -1,0 +1,10 @@
+- talk = Presentation.find_by_id(talk_id)
+%img{:src=>"#{talk.photo}", :class=>'large_photo left'}
+%h1 
+  KEYNOTE
+  .room Rooms 19 and 20 <br> Convention Center
+
+.talk_block
+  %h2= link_to talk.title, :controller=> 'presentation', :action=>'detail', :id=> talk.id
+  %h3= talk.author
+  %h3= talk.affiliation 

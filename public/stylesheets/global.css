@@ -50,7 +50,9 @@ ul {
 	 clear:both;
 }
 
-
+.indent {
+  text-indent: 2em;	
+}
 
 .left {
 	float:left;
@@ -138,14 +140,14 @@ img {
 }
 
 #call_to_action a {	  
-  background-image: url('/images/propose_button.png');
+  background-image: url('/images/register_button.png');
   display:block;
   height: 60px;
   width: 176px;
 }
 
 #call_to_action a:hover {	  
-  background-image: url('/images/propose_button_down.png');
+  background-image: url('/images/register_button_down.png');
   display:block;
   height: 60px;
   width: 176px;
@@ -644,7 +646,7 @@ img {
 }
 
 .time_block_g li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -692,7 +694,7 @@ img {
 }
 
 .time_block_r li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -741,7 +743,7 @@ img {
 }
 
 .time_block_b li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -833,7 +835,7 @@ img {
 }
 
 .time_block_p li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -841,7 +843,7 @@ img {
 }
 
 .time_block_y li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -881,7 +883,7 @@ img {
 }
 
 .time_block_c li {
-	padding: 25px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
   	list-style:none;
 }
 
@@ -900,6 +902,11 @@ img {
 .twohours {
 	min-height: 250px;
 }
+
+.twohourshalf {
+	min-height: 350px;
+}
+
 .threehours {
 	min-height: 250px;
 }
@@ -918,6 +925,15 @@ img {
     width: 120px;
     height: 120px;
     padding:5px;
+}
+
+.bio_photo {
+    background-color:#fff;
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    padding:5px;
+    margin:10px;
 }
 
 .schedule_block_rh_y {
@@ -983,13 +999,20 @@ img {
 
 #training h3 {
 	font-size: .8em;
-	color: #a62222;
+	color: #000;
     padding:0;
     margin:0 0 0 20px;
 }
 
+#training h4 {
+	font-size: .65em;
+	color: #000;
+    padding:0;
+    margin:4px 0 0 20px;
+}
+
 #training p {
-	font-size: .75em;
+	font-size: .70em;
 	color: #000;
     padding:0;
     margin:5px 0 0 20px;
@@ -1258,24 +1281,32 @@ img {
 
 #presentation h1 {
 	font-size: 1em;
-	color: #000;
+	color: #f00;
 	padding:0;
   margin:0 0 0px 0px;
 }
 
 #presentation h2 {
 	font-size: 0.9em;
-	color: #f00;
+	color: #000;
   padding:0;
   margin:0px 0 0px 0px;
 }
 
 #presentation h3 {
 	font-size: 0.8em;
-	color: #000;
+	color: #999;
   padding:0;
   margin:0px 0 0px 0px;
 }
+
+#presentation h4 {
+	font-size: 0.6em;
+	color: #999;
+  padding:0;
+  margin:0px 0 0px 0px;
+}
+
 
 .news_title {
 	font-size: 1.1em;
@@ -1300,3 +1331,19 @@ img {
   margin:0px 0 0px 0px;
   text-indent: 2em;
 }
+
+.talk_block {
+  padding: 9px 5px 0 5px;
+}
+
+.room {
+  font-size: .60em;
+  color: #000;
+  float: right;
+}
+
+.inline {
+  display:inline;
+}
+
+

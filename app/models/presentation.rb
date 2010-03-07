@@ -28,6 +28,6 @@ class Presentation < ActiveRecord::Base
   validates_length_of :abstract, :minimum => 20 * 6, :too_short => "is too short."
 
 
-  validates_acceptance_of :agreed_to_terms, :message => "You must agree to the Terms and Conditions in order to submit a proposal."
+  validates_acceptance_of :agreed_to_terms, :on=>:create, :message => "You must agree to the Terms and Conditions in order to submit a proposal."
       
 end

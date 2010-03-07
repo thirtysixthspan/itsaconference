@@ -23,13 +23,14 @@
       .time_block_b_header
         .time_block_b_body.hour
           %ul
-            %li 8:00 AM
-            %li 8:30 AM
+            %li 7:30 AM
   .grid_9
     .schedule_block_b
       .schedule_block_b_header
       .schedule_block_b_body.hour
-        %h1 BREAKFAST
+        %h1 
+          BREAKFAST 
+          .room Rooms 19 and 20 <br>  Convention Center
   .clear 
 
   .grid_1 
@@ -39,15 +40,12 @@
       .time_block_r_header
         .time_block_r_body.hour
           %ul
-            %li 9:00 AM
-            %li 9:30 AM
+            %li 8:30 AM
   .grid_9
     .schedule_block_r
       .schedule_block_r_header
       .schedule_block_r_body.hour
-        %img{:src=>"/images/jim_weirich_sq.png", :class=>'large_photo right'}
-        %h1 MORNING KEYNOTE
-        %h3 Jim Weirich, EdgeCase
+        = render :partial => "keynote", :locals => { :talk_id => 2 }
   .clear 
         
   .grid_1
@@ -55,17 +53,20 @@
   .grid_2
     .time_block_y
       .time_block_y_header
-        .time_block_y_body.hourhalf
+        .time_block_y_body.twohourshalf
           %ul
-            %li 10:00 AM
-            %li 10:30 AM
-            %li 11:00 AM
+            %li 9:30 AM 
   .grid_9
     .schedule_block_y
       .schedule_block_y_header
       .schedule_block_y_body.hourhalf
-        %img{:src=>"/images/ruby_icon.png", :class=>'right'}
-        %h1 RUBY
+        %h1 
+          .room 
+            %img{:src=>"/images/ruby_icon.png"} <br>
+            Rooms 19 and 20 <br>  Convention Center
+        %h1 
+          RUBY 
+        = render :partial => "presentation_block", :locals => { :start_time_string => "2010-5-6 09:30:00" }
   .clear 
 
   .grid_1
@@ -73,17 +74,20 @@
   .grid_2
     .time_block_y
       .time_block_y_header
-        .time_block_y_body.hourhalf
+        .time_block_y_body.twohourshalf
           %ul
-            %li 11:30 AM
-            %li 12:00 AM
-            %li 12:30 AM
+            %li 11:00 AM
   .grid_9
     .schedule_block_y
       .schedule_block_y_header
       .schedule_block_y_body.hourhalf
-        %img{:src=>"/images/rails_icon.png", :class=>'right'}
-        %h1 RAILS 3
+        %h1 
+          .room 
+            %img{:src=>"/images/rails_icon.png", :class=>'right'} <br>
+            Rooms 19 and 20 <br>  Convention Center
+        %h1 
+          RAILS 3 
+        = render :partial => "presentation_block", :locals => { :start_time_string => "2010-5-6 11:00:00" }
   .clear 
 
   .grid_1
@@ -91,15 +95,16 @@
   .grid_2
     .time_block_b
       .time_block_b_header
-        .time_block_b_body.hour
+        .time_block_b_body.hourhalf
           %ul
-            %li 1:00 PM
-            %li 1:30 PM
+            %li 12:30 PM
   .grid_9
     .schedule_block_b
       .schedule_block_b_header
-      .schedule_block_b_body.hour
-        %h1 LUNCH
+      .schedule_block_b_body.hourhalf
+        %h1 
+          LUNCH
+          .room Rooms 19 and 20 <br>  Convention Center
   .clear 
 
   .grid_1
@@ -107,17 +112,20 @@
   .grid_2
     .time_block_y
       .time_block_y_header
-        .time_block_y_body.hourhalf
+        .time_block_y_body.twohourshalf
           %ul
             %li 2:00 PM
-            %li 2:30 PM
-            %li 3:00 PM
   .grid_9
     .schedule_block_y
       .schedule_block_y_header
       .schedule_block_y_body.hourhalf
-        %img{:src=>"/images/nosql_icon.png", :class=>'right'}
-        %h1 NoSQL
+        %h1 
+          .room 
+            %img{:src=>"/images/nosql_icon.png", :class=>'right'} <br>
+            Rooms 19 and 20 <br>  Convention Center
+        %h1 
+          NoSQL
+        = render :partial => "presentation_block", :locals => { :start_time_string => "2010-5-6 14:00:00" }
   .clear 
 
   .grid_1
@@ -125,32 +133,35 @@
   .grid_2
     .time_block_y
       .time_block_y_header
-        .time_block_y_body.hourhalf
+        .time_block_y_body.twohourshalf
           %ul
             %li 3:30 PM
-            %li 4:00 PM
-            %li 4:30 PM
   .grid_9
     .schedule_block_y
       .schedule_block_y_header
       .schedule_block_y_body.hourhalf
-        %img{:src=>"/images/web_icon.png", :class=>'right'}
-        %h1 SERVERS
+        %h1 
+          .room 
+            %img{:src=>"/images/web_icon.png", :class=>'right'} <br>
+            Rooms 19 and 20 <br>  Convention Center
+        %h1 
+          SERVERS
+        = render :partial => "presentation_block", :locals => { :start_time_string => "2010-5-6 15:30:00" }
   .clear 
 
   .grid_1
     .spacer
   .grid_2
-    .time_block_c
-      .time_block_c_header
-        .time_block_c_body.hour
+    .time_block_g
+      .time_block_g_header
+        .time_block_g_body.hour
           %ul
             %li 5:00 PM
-            %li 5:30 PM
   .grid_9
-    .schedule_block_c
-      .schedule_block_c_header
-      .schedule_block_c_body.hour
+    .schedule_block_g
+      .schedule_block_g_header
+      .schedule_block_g_body.hour
+        %h1 BREAK
   .clear 
 
   .grid_1
@@ -161,12 +172,13 @@
         .time_block_b_body.hour
           %ul
             %li 6:00 PM
-            %li 6:30 PM
   .grid_9
     .schedule_block_b
       .schedule_block_b_header
       .schedule_block_b_body.hour
-        %h1 DINNER
+        %h1 
+          DINNER
+          .room Rooms 19 and 20 <br>  Convention Center
   .clear 
 
   .grid_1
@@ -183,10 +195,11 @@
       .schedule_block_g_body.halfhour
         %img{:src=>"/images/gregg.jpg", :class=>'photo left'}
         %a{:href=>"http://ruby5.envylabs.com"}
-          %img{:src=>"/images/ruby5.png", :class=>'right'}
-        %h2 Ruby5 Podcast
+        %h1 
+          Ruby5 Podcast
+          .room Room 21 <br>  Convention Center
         %h3 Gregg Pollack, EnvyLabs
-        %p Attend a live recording of the Ruby5 Podcast.
+        %p Live recording of the Ruby5 Podcast.
   .clear 
 
   .grid_1
@@ -197,14 +210,11 @@
         .time_block_r_body.hour
           %ul
             %li 8:00 PM
-            %li 8:30 PM
   .grid_9
     .schedule_block_r
       .schedule_block_r_header
       .schedule_block_r_body.hour
-        %img{:src=>"/images/davethomas_sq.png", :class=>'large_photo right'}
-        %h1 EVENING KEYNOTE
-        %h3 Dave Thomas, The Pragmatic Programmers
+        = render :partial => "keynote", :locals => { :talk_id => 1 }
   .clear 
 
   .grid_1
@@ -215,14 +225,14 @@
         .time_block_p_body.twohours
           %ul
             %li 9:00 PM
-            %li 9:30 PM
-            %li 10:00 PM
-            %li 10:30 PM
   .grid_9
     .schedule_block_p
       .schedule_block_p_header
       .schedule_block_p_body.twohours
-        %h1 HACKFEST
+        %h1 
+          HACKFEST 
+          .room Kingkade Room<br> 2nd Floor<br> Renaissance Hotel<br>
+        %p Come code and converse with other ruby programmers. Bring a problem that you are working on or help someone else tackle theirs. Meet and chat up the day's speakers. Enjoy drinks, snacks and music in this late night open session. 
   .clear 
 
 
@@ -258,7 +268,9 @@
     .schedule_block_b
       .schedule_block_b_header
       .schedule_block_b_body.halfhour
-        %h1 BREAKFAST
+        %h1 
+          BREAKFAST
+          .room Rooms 19 and 20 <br>  Convention Center
   .clear 
 
   .grid_1
@@ -269,30 +281,30 @@
         .time_block_y_body.hourhalf
           %ul
             %li 9:00 PM
-            %li 10:00 PM
-            %li 11:00 PM
   .grid_4
     .schedule_block_lh_y
       .schedule_block_lh_y_header
       .schedule_block_lh_y_body.hourhalf
-        %h2 The Ruby Your Mother Warned You About
+        %h2= link_to "The Ruby Your Mother Warned You About", :controller=>"presentation", :action=>"detail", :id=>3
         .training_box
           %img{:src=>"/images/ruby_icon.png", :class=>'right'}
           %h1 TRAINING
           %img{:src=>"/images/jamesgray.jpg", :class=>'photo right'}
-        %h3 James Edward Gray II and Glenn Vanderburg
-        %p In this training, you will get to see several examples of scary Ruby code. The samples will be inspired by code I have actually seen in the wild. As a team, we will Rubyify the code, examine exactly what that means and why it is an improvement, and then land on some guidelines we can use to keep our code from scaring our mom.
+        %h3 James Edward Gray II and <br> Glenn Vanderburg
+        %h4 Room 19, Convention Center
+        %p In this training, you will get to see several examples of scary Ruby code. The samples will be inspired by code we have actually seen in the wild. We will Rubyify the code, examine what that means and how it is an improvement, and then discuss guidelines to keep our code from scaring our mom.
 
   .grid_4
     .schedule_block_rh_y
       .schedule_block_rh_y_header
       .schedule_block_rh_y_body.hourhalf
-        %h2 The Rails 3 Ropes Course
+        %h2= link_to "The Rails 3 Ropes Course", :controller=>"presentation", :action=>"detail", :id=>4
         .training_box
           %img{:src=>"/images/rails_icon.png", :class=>'right'}
           %h1 TRAINING
           %img{:src=>"/images/gregg.jpg", :class=>'photo right'}
         %h3 Gregg Pollack
+        %h4 Room 20, Convention Center
         %p	For this ropes course, members of the Envy Labs team will march you through the core concepts of Rails 3 while taking you through the development of a new Rails application. At the end of this course you will come away with a better understanding what’s new in Rails 3, and equally as important, what has changed since Rails 2.
 
   .clear
@@ -310,7 +322,9 @@
     .schedule_block_b
       .schedule_block_b_header
       .schedule_block_b_body.halfhour
-        %h1 LUNCH
+        %h1 
+          LUNCH
+          .room Rooms 19 and 20 <br>  Convention Center
   .clear 
 
   .grid_1
@@ -321,30 +335,30 @@
         .time_block_y_body.hourhalf
           %ul
             %li 1:00 PM
-            %li 2:00 PM
-            %li 3:00 PM
   .grid_4
     .schedule_block_lh_y
       .schedule_block_lh_y_header
       .schedule_block_lh_y_body.hourhalf
-        %h2 Introduction to Riak 
+        %h2= link_to "Introduction to Riak", :controller=>"presentation", :action=>"detail", :id=>5
         .training_box
           %img{:src=>"/images/nosql_icon.png", :class=>'right'}
           %h1 TRAINING
           %img{:src=>"/images/seancribbs.jpg", :class=>'photo right'}
         %h3 Sean Cribbs
+        %h4 Room 19, Convention Center
         %p The team from Basho will lead you through the ins and outs of <A href="http://riak.basho.com/">Riak</a>, a document-oriented database. Riak combines a decentralized key-value store, a flexible map/reduce engine, and a friendly HTTP/JSON query interface to provide a database ideally suited for Web applications. 
 
   .grid_4
     .schedule_block_rh_y
       .schedule_block_rh_y_header
       .schedule_block_rh_y_body.hourhalf
-        %h2 Living Among the Clouds
+        %h2= link_to "Living Among the Clouds", :controller=>"presentation", :action=>"detail", :id=>6
         .training_box
           %img{:src=>"/images/web_icon.png", :class=>'right'}
           %h1 TRAINING
           %img{:src=>"/images/jim_mulholland.png", :class=>'photo right'}
-        %h3 Jim Mulholland and Jason Derrett
+        %h3 Jim Mulholland and <br> Jason Derrett
+        %h4 Room 20, Convention Center
         %p The team from <a href="http://squeejee.com">Squeejee</a> will walk you through how to deploy apps to Heroku, EngineYard, and Amazon EC2 and cover some pros and cons of each. This will be an interactive class where we deploy the same app to different servers and compare the results.
 
   .clear
@@ -363,6 +377,9 @@
       .schedule_block_b_header
       .schedule_block_b_body.halfhour
         %h1 Red Dirt Ruby Social Hour
+        %h4 Technology Commons, Convention Center
+        %p Join us for one last get together over drinks and snacks.
+
   .clear 
 
 

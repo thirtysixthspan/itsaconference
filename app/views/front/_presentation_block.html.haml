@@ -1,0 +1,10 @@
+- start_time = Time.zone.parse(start_time_string)
+- end_time = start_time + 85.minutes
+- talks = Presentation.find(:all,:conditions=>['start_time between ? and ?', start_time, end_time], :order =>'start_time ASC')
+- talks.each do |talk|
+  .talk_block
+    %img{:src=>"#{talk.photo}", :class=>'photo left'}
+    %h2= link_to talk.title, :controller=> 'presentation', :action=>'detail', :id=> talk.id
+    %h3= talk.author
+    %h3= talk.affiliation
+  .clear 
