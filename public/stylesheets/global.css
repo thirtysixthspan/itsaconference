@@ -1107,7 +1107,7 @@ img {
 }
 
 #register h2 {
-	font-size: 1em;
+	font-size: 1.1em;
 	color: #000;
     padding:0;
     margin:15px 0 10px 0px;
@@ -1120,7 +1120,7 @@ img {
 }
 
 #register h3 {
-	font-size: 0.9em;
+	font-size: 1em;
 	color: #a62222;
     padding:0;
     margin:5px 0 0px 0px;
@@ -1134,6 +1134,10 @@ img {
     padding:0;
     margin:20px 0 0 0px;
   text-indent: 0;
+}
+
+#register ul {
+  padding: 10px 20px 0 20px;	
 }
 
 #sponsorship p, #venue p, #cfp p, #register p {
