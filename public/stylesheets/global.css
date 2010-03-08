@@ -1368,6 +1368,9 @@ img {
   margin:0px 0 0px 0px;
 }
 
+.news_item {
+	 padding: 0 10px 0 10px;
+}
 
 .news_title {
 	font-size: 1.1em;
@@ -1386,10 +1389,8 @@ img {
 
 
 .news_text {
-	font-size: 0.8em;
-	color: #000;
-  padding:0;
-  margin:0px 0 0px 0px;
+	font-size: 0.75em;
+	color: #777;
   text-indent: 2em;
 }
 

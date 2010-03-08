@@ -30,4 +30,18 @@ class Presentation < ActiveRecord::Base
 
   validates_acceptance_of :agreed_to_terms, :on=>:create, :message => "You must agree to the Terms and Conditions in order to submit a proposal."
       
+      
+  def small_photo
+    self.photo.gsub("/speaker_photos/","/speaker_photos/photo_")
+  end    
+
+  def large_photo
+    self.photo.gsub("/speaker_photos/","/speaker_photos/large_photo_")
+  end    
+
+
+  def bio_photo
+    self.photo.gsub("/speaker_photos/","/speaker_photos/bio_photo_")
+  end    
+      
 end
