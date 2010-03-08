@@ -31,16 +31,16 @@ class Presentation < ActiveRecord::Base
       
       
   def small_photo
-    self.photo.gsub("/speaker_photos/","/speaker_photos/photo_")
+    self.photo.gsub("s/","s/photo_")
   end    
 
   def large_photo
-    self.photo.gsub("/speaker_photos/","/speaker_photos/large_photo_")
+    self.photo.gsub("s/","s/large_photo_")
   end    
 
 
   def bio_photo
-    self.photo.gsub("/speaker_photos/","/speaker_photos/bio_photo_")
+    self.photo.gsub("s/","s/bio_photo_")
   end    
       
 end
