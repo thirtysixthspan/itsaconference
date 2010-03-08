@@ -6,6 +6,7 @@
     %h1= @presentation.title
     %h2= @presentation.author
     %h3= @presentation.affiliation
+    %h4= @presentation.start_time.strftime('%I:%M %p, %A %B %d, %Y').gsub(/^0/,"")
       
   .clear 
 

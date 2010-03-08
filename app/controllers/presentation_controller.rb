@@ -1,16 +1,16 @@
 class PresentationController < ApplicationController
 
   def index 
-    @presentations = Presentation.find(:all, :conditions => ['status = "approved"'])    
+    @presentations = Presentation.find(:all, :conditions => ['status = "approved"'], :order => 'start_time ASC')    
   end
 
   def talks
-    @presentations = Presentation.find(:all, :conditions => ['(format = "keynote" or format = "talk") and (status = "approved" or status = "confirmed")'])    
+    @presentations = Presentation.find(:all, :conditions => ['(format = "keynote" or format = "talk") and (status = "approved" or status = "confirmed")'], :order => 'start_time ASC')    
     render :action=>:index
   end
 
   def training
-    @presentations = Presentation.find(:all,:conditions => ['format = "training"'])    
+    @presentations = Presentation.find(:all,:conditions => ['format = "training"'], :order => 'start_time ASC')    
     render :action=>:index
   end
   
