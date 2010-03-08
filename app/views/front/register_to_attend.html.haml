@@ -5,23 +5,41 @@
   .grid_10
     .spacer
     %h1 REGISTER TO ATTEND
+    %p Registration will open Wednesday March 10th.  
+      
+    %h2 Pricing
+    %table
+      %tr{:style=>"background-color:#ccc"} 
+        %td Registration Deadline
+        %td Early Price<br>March 26th  
+        %td Standard Price<br>April 23rd  
+        %td Last Minute Price<br>May 5th  
+      %tr{:style=>"background-color:#eee"} 
+        %td Conference Pass
+        %td $249  
+        %td $299
+        %td $399  
+      %tr{:style=>"background-color:#eee"} 
+        %td Training Pass
+        %td $199  
+        %td $249
+        %td $349  
+      %tr{:style=>"background-color:#eee"}
+        %td Video Delivery
+        %td $99  
+        %td $129
+        %td $149  
+      
 
-    %p The registration system is not yet open. Please check back March 5th.
-    
-    %p 
-      %h2 Conference Registration will include
-      %ol
-        %li Access to the conference sessions and hallway track activities on May 6th
-        %li Breakfast, Lunch, Snacks and Dinner
-        %li Red Dirt Tshirt
-        %li Swag and a shot at prizes
-
-    %p 
-      %h2 Training Registration will include
-      %ol
-        %li Access to a morning and evening training session on May 7th
-        %li Breakfast, Lunch, Snacks
-        %li Training Materials
+    %h2 What is Included?      
+    - @items = Item.find(:all)
+    - @items.each do |item|
+      .item_descriptions
+        %h3= item.name 
+        %p= item.description 
+ 
+    %h2 Questions
+    %p Direct all registration related questions to <a href="registration@reddirtrubyconf.com"> registration@reddirtrubyconf.com </a>.
  
 .grid_1
   .spacer

@@ -550,6 +550,13 @@ img {
     margin:0 0 0 20px;
 }
 
+#schedule h4 {
+	font-size: .65em;
+	color: #000;
+    padding:0;
+    margin:4px 0 0 20px;
+}
+
 #schedule p {
 	font-size: .8em;
 	color: #000;
@@ -983,7 +990,7 @@ img {
 }
 
 #training h1 {
-	font-size: 1em;
+	font-size: 1.25em;
 	color: #a62222;
     padding:0;
     margin:0 0 5px 10px;
@@ -998,7 +1005,7 @@ img {
 }
 
 #training h3 {
-	font-size: .8em;
+	font-size: .75em;
 	color: #000;
     padding:0;
     margin:0 0 0 20px;
@@ -1103,8 +1110,30 @@ img {
 	font-size: 1em;
 	color: #000;
     padding:0;
+    margin:15px 0 10px 0px;
+    left:300px;
+}
+
+
+#register .item_descriptions {
+  padding: 5px 0 0 50px;	
+}
+
+#register h3 {
+	font-size: 0.9em;
+	color: #a62222;
+    padding:0;
     margin:5px 0 0px 0px;
     left:300px;
+}
+
+
+#register p {
+	font-size: .9em;
+	color: #000;
+    padding:0;
+    margin:20px 0 0 0px;
+  text-indent: 0;
 }
 
 #sponsorship p, #venue p, #cfp p, #register p {
@@ -1115,7 +1144,26 @@ img {
   text-indent: 0;
 }
 
+#venue ul {
+  padding: 10px 20px 0 20px;	
+}
 
+#venue h4 {
+	font-size: 1em;
+	color: #000;
+    padding:0;
+    margin:5px 0 0px 0px;
+    padding: 5px 0 5px 0;
+    left:300px;
+}
+
+#venue table {
+}
+
+#venue td, #venue th {
+  padding: 0 10px 0 10px;
+  border: 1px solid #000;
+}
 
 
 #venue img {
@@ -1244,6 +1292,15 @@ img {
   padding: 10px 0 0 0;
 }
 
+#register table {
+  padding: 0 0 0 60px;
+  text-align:center;
+}
+
+#register td {
+	padding: 5px 20px 5px 20px;
+}
+
 #theme_drill_down h1 {
 	font-size: 1.25em;
 	color: #a62222;
@@ -1346,4 +1403,48 @@ img {
   display:inline;
 }
 
+#order p, #order li  {
+	font-size: .8em;
+	color: #000;
+	margin: 5px 0 0 0;
+}
+
+#order h1 {
+	font-size: 1em;
+	color: #fff;
+  text-align:center;
+}
+
+#order fieldset {
+    background: #ffffff url('/images/content_bg.png') top center repeat-x;
+    padding:10px;
+    margin:10px;
+}
+
+#order legend {
+	font-size: .75em;
+	background-color: #fff;
+  padding:2px 20px 2px 20px;
+  border: 1px solid #000;
+  margin: 0 10px 0 0;  
+  position:absolute;
+}
+
+#order label {
+}
+
+.order_form input, .order_form textarea {
+  width: 100%;
+  display: block;   
+}
+
+
+#order label.desc {
+  color: #888;
+}
+
+.order_table td {
+  padding: 5px;
+  border: 1px solid #000;
+}
 

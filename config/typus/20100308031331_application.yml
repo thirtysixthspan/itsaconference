@@ -1,0 +1,20 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Purchase:
+  fields:
+    list: name, affiliation, payment_status, created_at
+    form: name, job_title, affiliation, phone, email, agreed_to_mailings, payment_transaction, payment_code, payment_status, payment_date
+    show: id, name, job_title, affiliation, phone, email, agreed_to_mailings, payment_transaction, payment_code, payment_status, payment_date, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+

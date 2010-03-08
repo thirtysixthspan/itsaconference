@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100202100157) do
+ActiveRecord::Schema.define(:version => 20100308031309) do
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "current_price",      :limit => 10, :precision => 10, :scale => 0
+    t.integer  "quantity_original"
+    t.integer  "quantity_available"
+    t.datetime "scheduled_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -37,6 +48,21 @@ ActiveRecord::Schema.define(:version => 20100202100157) do
     t.integer  "duration"
     t.string   "slides"
     t.string   "video"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.string   "name"
+    t.string   "job_title"
+    t.string   "affiliation"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "agreed_to_mailings"
+    t.string   "payment_transaction"
+    t.string   "payment_code"
+    t.string   "payment_status"
+    t.datetime "payment_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

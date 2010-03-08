@@ -1,0 +1,20 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Item:
+  fields:
+    list: name, description, current_price, quantity_original, quantity_available, scheduled_time
+    form: name, description, current_price, quantity_original, quantity_available, scheduled_time
+    show: id, name, description, current_price, quantity, quantity_available, scheduled_time, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+

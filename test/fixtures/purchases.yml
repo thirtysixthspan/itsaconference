@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  job_title: MyString
+  affiliation: MyString
+  phone: MyString
+  email: MyString
+  agreed_to_mailings: MyString
+  payment_transaction: MyString
+  payment_code: MyString
+  payment_status: MyString
+  payment_date: 2010-03-07 21:13:09
+
+two:
+  name: MyString
+  job_title: MyString
+  affiliation: MyString
+  phone: MyString
+  email: MyString
+  agreed_to_mailings: MyString
+  payment_transaction: MyString
+  payment_code: MyString
+  payment_status: MyString
+  payment_date: 2010-03-07 21:13:09

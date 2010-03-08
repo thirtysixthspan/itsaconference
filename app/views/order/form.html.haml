@@ -1,0 +1,111 @@
+.grid_12#order
+
+  .grid_2.spacer
+
+  .grid_8
+    
+    - form_for( :purchase, @purchase, :url => { :action => "submit" }) do |f|
+      = f.error_messages
+   
+      %h3 ORDER FORM
+      %fieldset  
+    
+        %p Thank you for your interest in the Red Dirt Ruby Conference.
+        %p Please complete the form below. All fields are mandatory.
+
+      %h3 CONTACT
+      %fieldset.order_form  
+        
+        %p
+          %label{:for => 'name'} Full Name
+          = f.text_field :name
+
+        %p
+          %label{:for => 'job_title'} Job Title
+          = f.text_field :job_title
+        
+        %p
+          %label{:for => 'affiliation'} Professional Affiliation
+          = f.text_field :affiliation
+
+        %p
+          %label{:for => 'phone'} Phone
+          = f.text_field :phone
+
+        %p
+          %label{:for => 'email'} Email
+          = f.text_field :email
+
+        %p
+          <table><tr><td>
+          = f.check_box :agreed_to_mailings
+          </td><td>Please keep me informed of conference updates and future events via email.</td></tr></table>
+
+      %h3 CART
+      %fieldset.order_form
+
+        %p
+          <table  class="order_table">
+          <tr>
+          <th>Purchase?</th>
+          <th>Price</th>
+          <th>Item</th>
+          <th>Scheduled</th>
+          <th></th>
+          </tr>
+          
+          - @available_items = Item.find(:all, :conditions=>['quantity_available > 0'])
+          - bg = "#ccc"
+          - @available_items.each do |item|
+            - if (bg=="#ccc") then bg="#eee" else bg="#ccc" end
+            = "<tr style='background-color:#{bg}'>"
+            <td>
+            = check_box "", "item#{item.id}"
+            </td>
+            <td>
+            = number_to_currency item.current_price
+            </td>
+            <td>
+            = item.name 
+            </td>
+            <td>
+            = item.scheduled_time.strftime("%B %d, %Y")
+            </td>
+            <td>
+            = link_to '(more detail)', {:controller=>'order', :action=>'item', :id=>item.id}, :target => "_blank"
+            </td>
+            </tr>
+          </table>
+
+   
+      %h3 TERMS AND CONDITIONS
+      %fieldset  
+        
+        %p By registering you understand and agree that
+        %ol
+        
+          %li cancellations may be made up until April 2nd, 2010. Fees will be refunded minus a $100 processing fee. Any orders made after that date will be non-refundable. Passes may not be resold and are non-transferrable.
+
+          %li because of the dynamic nature of live events, the content and other details of the event are subject to last minute change without notification.
+
+          %li because the event presentation and trainings will be video recorded, you give the event producer (The Oklahoma City Coworking Collaborative, LLC) and its designees the right to use your name, title, affiliation, likeness, image, voice, appearance, performance, presentation title, presentation abstract, and presentation slides whether recorded on or transferred to videotape, film, slides, photographs, audio tapes, or other media, now known or later developed, in connection with this and subsequent events. 
+          
+          %li you expressly release and indemnify the producer and its officers, employees, agents and designees from any and all claims known and unknown arising out of or in any way connected with the above granted uses and representations.
+
+          %li no video or audio recordings of the event may be produced or distributed without the express permission of the event producer. This restriction does not apply to photographs. 
+
+          %li In the unlikely event that the Red Dirt Ruby Conference is cancelled, your full registration will be refunded and the event producer will not liable for any direct or indirect damages of any nature. 
+ 
+
+      
+            
+        %p  
+          <table><tr><td>
+          = f.check_box :agreed_to_terms
+          </td><td>
+          %label{:for=>:agreed_to_terms} I agree to these Terms and Conditions
+          </td></tr></table>
+                
+        %p= f.submit 'Proceed'
+
+  .grid_2.spacer

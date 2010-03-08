@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  price: 9.99
+  quantity: 1
+  quantity_available: 1
+  scheduled_time: 2010-03-07 18:04:01
+
+two:
+  name: MyString
+  description: MyString
+  price: 9.99
+  quantity: 1
+  quantity_available: 1
+  scheduled_time: 2010-03-07 18:04:01
