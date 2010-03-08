@@ -5,7 +5,7 @@ class PresentationController < ApplicationController
   end
 
   def talks
-    @presentations = Presentation.find(:all, :conditions => ['(format = "keynote" or format = "talk") and status = "approved"'])    
+    @presentations = Presentation.find(:all, :conditions => ['(format = "keynote" or format = "talk") and (status = "approved" or status = "confirmed")'])    
     render :action=>:index
   end
 
