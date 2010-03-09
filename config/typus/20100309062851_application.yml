@@ -1,0 +1,50 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+PurchasedItem:
+  fields:
+    list: purchase, item, value, created_at
+    form: purchase, item, value
+    show: id, purchase, item, value, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+
+Question:
+  fields:
+    list: query, item
+    form: query, acceptable_responses, item
+    show: id, item, query, acceptable_responses, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships:
+  filters:
+  search:
+  application: itsaconference
+  description:
+
+Response:
+  fields:
+    list: purchase, question, response
+    form: purchase, question, response
+    show: id, purchase, question, response, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+

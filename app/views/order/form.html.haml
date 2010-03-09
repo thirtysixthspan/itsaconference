@@ -45,7 +45,7 @@
       %fieldset.order_form
 
         %p
-          <table  class="order_table">
+          <center><table  class="order_table">
           <tr>
           <th>Purchase?</th>
           <th>Price</th>
@@ -57,10 +57,9 @@
           - @available_items = Item.find(:all, :conditions=>['quantity_available > 0'])
           - bg = "#ccc"
           - @available_items.each do |item|
-            - if (bg=="#ccc") then bg="#eee" else bg="#ccc" end
             = "<tr style='background-color:#{bg}'>"
             <td>
-            = check_box "", "item#{item.id}"
+            = check_box "item", "#{item.id}"
             </td>
             <td>
             = number_to_currency item.current_price
@@ -75,7 +74,15 @@
             = link_to '(more detail)', {:controller=>'order', :action=>'item', :id=>item.id}, :target => "_blank"
             </td>
             </tr>
-          </table>
+            - item.questions.each do |question|
+              <tr><td style="border: 0px"></td>
+              <td colspan=4>
+              = question.query
+              = ":"
+              = collection_select :response, question.id, question.acceptable_responses.split(/,/), :chomp, :chomp
+              </td>
+              </tr>
+          </table><center>
 
    
       %h3 TERMS AND CONDITIONS

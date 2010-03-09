@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100308031309) do
+ActiveRecord::Schema.define(:version => 20100309062230) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "current_price",      :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "current_price",      :precision => 8, :scale => 2, :default => 0.0
     t.integer  "quantity_original"
     t.integer  "quantity_available"
     t.datetime "scheduled_time"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20100308031309) do
     t.datetime "updated_at"
   end
 
+  create_table "purchased_items", :force => true do |t|
+    t.integer  "purchase_id"
+    t.integer  "item_id"
+    t.integer  "value",       :limit => 10, :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "purchases", :force => true do |t|
     t.string   "name"
     t.string   "job_title"
@@ -67,11 +75,27 @@ ActiveRecord::Schema.define(:version => 20100308031309) do
     t.datetime "updated_at"
   end
 
+  create_table "questions", :force => true do |t|
+    t.integer  "item_id"
+    t.string   "query"
+    t.string   "acceptable_responses"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer  "value"
     t.integer  "rateable_id"
     t.string   "rateable_type"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "responses", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "response"
+    t.integer  "purchase_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

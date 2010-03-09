@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.root :controller=>"front", :action=>"index"
 
-  map.connect 'order/:action', :controller=>"order" 
+  map.connect 'order/:action/:id', :controller=>"order" 
   map.connect 'proposal/:action', :controller=>"proposal" 
   map.connect 'program', :controller=>"front", :action=>"program"
   map.connect 'contact', :controller=>"front", :action=>"contact"
@@ -73,7 +73,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :news
   map.resources :items
   map.resources :purchases
-  
+  map.resources :purchased_items
+  map.resources :questions    
+  map.resources :responses  
   
   #map.error '*url',
   #    :controller => 'error',
