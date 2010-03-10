@@ -102,7 +102,7 @@ class OrderController < ApplicationController
     if valid_simplepay_request?(params)
 
       if (params['status'] == 'PS')
-        purchase=Purchase.find_by_code(params[:referenceId])
+        purchase=Purchase.find_by_payment_code(params[:referenceId])
         render :nothing=>true, :status=>200 and return unless purchase
         render :nothing=>true, :status=>200 and return unless purchase.paid==false
         purchase.payment_transaction=params['transactionId']
@@ -113,7 +113,7 @@ class OrderController < ApplicationController
       end
 
       if (params['status'] == 'PF')
-        purchase=Purchase.find_by_code(params[:referenceId])
+        purchase=Purchase.find_by_payment_code(params[:referenceId])
         render :nothing=>true, :status=>200 and return unless purchase
         purchase.payment_status="failed"
         purchase.payment_date=Time.now
