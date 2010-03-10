@@ -76,7 +76,6 @@ class OrderController < ApplicationController
     @purchase = Purchase.find_by_payment_code(code)
     return if !@purchase
     @purchase.payment_status="processing"
-    @purchase.payment_amount=params['transactionAmount']
     @purchase.save
     PurchaseMailer.deliver_notice(@purchase) if @purchase  
   end
@@ -107,6 +106,7 @@ class OrderController < ApplicationController
         render :nothing=>true, :status=>200 and return unless purchase.payment_status!="paid"
         purchase.payment_transaction=params['transactionId']
         purchase.payment_status="paid"
+        purchase.payment_amount=params['transactionAmount']
         purchase.payment_date=Time.now
         purchase.save
         PurchaseMailer.deliver_purchase_confirmed(purchase)
