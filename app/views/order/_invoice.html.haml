@@ -115,9 +115,7 @@
       Payment for this order has been processed. 
       
     %p  
-      We received a payment of 
-      = @purchase.payment_amount
-      on
+      We received a payment on
       = @purchase.payment_date.strftime('%I:%M %p, %A %B %d, %Y').gsub(/^0/,"")
     %p
       Your transaction code is
