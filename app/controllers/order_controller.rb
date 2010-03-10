@@ -104,7 +104,7 @@ class OrderController < ApplicationController
       if (params['status'] == 'PS')
         purchase=Purchase.find_by_payment_code(params[:referenceId])
         render :nothing=>true, :status=>200 and return unless purchase
-        render :nothing=>true, :status=>200 and return unless purchase.paid==false
+        render :nothing=>true, :status=>200 and return unless purchase.payment_status!="paid"
         purchase.payment_transaction=params['transactionId']
         purchase.payment_status="paid"
         purchase.payment_date=Time.now

@@ -4,7 +4,7 @@ class PurchaseMailer < ActionMailer::Base
     @recipients = purchase.email
     @from = "registration@reddirtrubyconf.com"
     @bcc = "registration@reddirtrubyconf.com"
-    @subject = "[RedDirtRubyConf] Purchase Request"
+    @subject = "[RedDirtRubyConf] Recent Purchase"
     @sent_on = Time.now
     @body[:purchase]=purchase
     @content_type = "text/html"
