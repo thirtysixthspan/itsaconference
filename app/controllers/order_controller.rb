@@ -85,6 +85,7 @@ class OrderController < ApplicationController
     @purchase = Purchase.find_by_payment_code(code)
     return if !@purchase
     @purchase.payment_status="failed"
+    @purchase.payment_date=Time.now
     @purchase.save
   end
 
@@ -109,6 +110,12 @@ class OrderController < ApplicationController
         purchase.payment_amount=params[:transactionAmount]
         purchase.payment_date=Time.now
         purchase.save
+        
+        purchase.items.each do |item|
+          item.quantity_available-=1
+          item.save
+        end
+        
         PurchaseMailer.deliver_purchase_confirmed(purchase)
       end
 
