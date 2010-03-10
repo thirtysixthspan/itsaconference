@@ -4,80 +4,110 @@
 
   .grid_8
     
-    - form_for( :purchase, @purchase, :url => { :action => "finalize" }) do |f|
-      = f.error_messages
-   
-      %h3 Finalize Payment
-      %fieldset  
-    
-        %p Please review the information below and if correct submit payment.
+    %h3 Finalize Payment
+    %fieldset  
+  
+      %p Please review the information below and if correct submit payment.
 
-      %h3 CONTACT
-      %fieldset.order_form  
+    %h3 CONTACT
+    %fieldset.order_form  
+      
+      %p
+        %label Name:   
+        = @purchase.name
+      %p
+        %label Job Title:
+        = @purchase.job_title
+      %p
+        %label Affiliation:
+        = @purchase.affiliation
+      %p
+        %label Phone:
+        = @purchase.phone
+      %p 
+        %label Email:
+        = @purchase.email
+      %p
+        %label Email Updates:
+        = @agreed_to_mailings ? "Yes" : "No"
+
+    %h3 YOUR PURCHASE ORDER
+    %fieldset.order_form
+
+      %p
+        <center><table class="order_table">
+        <tr>
+        <th>Price</th>
+        <th>Item</th>
+        <th>Scheduled</th>
+        </tr>
         
-        %p
-          %label Name:   
-          = @purchase.name
-        %p
-          %label Job Title:
-          = @purchase.job_title
-        %p
-          %label Affiliation:
-          = @purchase.affiliation
-        %p
-          %label Phone:
-          = @purchase.phone
-        %p 
-          %label Email:
-          = @purchase.email
-        %p
-          %label Email Updates:
-          = @agreed_to_mailings ? "Yes" : "No"
-
-      %h3 YOUR PURCHASE
-      %fieldset.order_form
-
-        %p
-          <center><table class="order_table">
-          <tr>
-          <th>Price</th>
-          <th>Item</th>
-          <th>Scheduled</th>
+        - bg = "#ccc"
+        - sum = 0
+        - @purchase.items.each do |item|
+          - sum+=item.current_price
+          = "<tr style='background-color:#{bg}'>"
+          <td>
+          = number_to_currency item.current_price
+          </td>
+          <td>
+          = item.name 
+          </td>
+          <td>
+          = item.scheduled_time.strftime("%B %d, %Y")
+          </td>
           </tr>
-          
-          - bg = "#ccc"
-          - sum = 0
-          - @purchase.items.each do |item|
-            - sum+=item.current_price
-            = "<tr style='background-color:#{bg}'>"
-            <td>
-            = number_to_currency item.current_price
-            </td>
-            <td>
-            = item.name 
-            </td>
-            <td>
-            = item.scheduled_time.strftime("%B %d, %Y")
+
+          - item.questions.each do |question|
+            <tr><td style="border:0px"></td>
+            <td colspan=2>
+            = question.query
+            = ":"
+            - @response = Response.find(:first,:conditions=>['question_id = ? and purchase_id = ?',question.id,@purchase.id]) 
+            = @response.response
             </td>
             </tr>
+        <tr style="background-color:#fff">
+        <td>
+        = number_to_currency sum
+        </td>
+        <td colspan=2>Total Fee</td>
+        </tr>  
 
-            - item.questions.each do |question|
-              <tr><td style="border:0px"></td>
-              <td colspan=2>
-              = question.query
-              = ":"
-              - @response = Response.find(:first,:conditions=>['question_id = ? and purchase_id = ?',question.id,@purchase.id]) 
-              = @response.response
-              </td>
-              </tr>
-          <tr style="background-color:#fff">
-          <td>
-          = number_to_currency sum
-          </td>
-          <td colspan=2>Total Fee</td>
-          </tr>  
- 
-          </table></center>
+        </table></center>
+    
+    
+    %h3 PAYMENT
+    %fieldset.order_form
+
+      - parameters = { |
+        :amount                 => sum, |
+        :description            => "Red Dirt Ruby Conference Purchase", |
+        :ipn_url                => "http://reddirtrubyconf.com/order/amazon_ipn", | 
+        :return_url             => "http://reddirtrubyconf.com/order/payment_initiated", |
+        :immediate_return       => true, |
+        :process_immediately    => true, |
+        :abandon_url            => "http://reddirtrubyconf.com/order/payment_failure", |
+        :reference_id           => @purchase.payment_code, |
+        :collect_shipping_address => false, |
+        } |
+
+      %p We are processing all payments for this conference through Amazon Payments. Amazon takes all major credit cards. All credit card information is stored securely for PCI compliance by Amazon.com. Please click Pay Now to be directed to the Amazon Payments portal. Upon completion, you will be redirected back to this website to finalize your purchase.
       
-            
+      %center
+        %table{:class=>'order_table'}
+          %tr
+            %td
+              = number_to_currency sum
+              Due
+            %td= simplepay_form_for(:standard, parameters, '<input type="image" src="https://authorize.payments.amazon.com/pba/images/GMPayNowWithLogo.png">')
+          
   .grid_2.spacer
+  
+  .spacer.clear  
+  .spacer.clear  
+  
+  
+  
+  
+  

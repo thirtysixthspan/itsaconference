@@ -1,0 +1,128 @@
+%h3 YOUR CONTACT
+%fieldset.order_form  
+  
+  %p
+    %label Name:   
+    = @purchase.name
+  %p
+    %label Job Title:
+    = @purchase.job_title
+  %p
+    %label Affiliation:
+    = @purchase.affiliation
+  %p
+    %label Phone:
+    = @purchase.phone
+  %p 
+    %label Email:
+    = @purchase.email
+  %p
+    %label Email Updates:
+    = @agreed_to_mailings ? "Yes" : "No"
+
+
+%h3 YOUR PURCHASE ORDER
+%fieldset.order_form
+
+  %p
+    <center><table class="order_table">
+    <tr>
+    <th>Price</th>
+    <th>Item</th>
+    <th>Scheduled</th>
+    </tr>
+    
+    - bg = "#ccc"
+    - sum = 0
+    - @purchase.items.each do |item|
+      - sum+=item.current_price
+      = "<tr style='background-color:#{bg}'>"
+      <td>
+      = number_to_currency item.current_price
+      </td>
+      <td>
+      = item.name 
+      </td>
+      <td>
+      = item.scheduled_time.strftime("%B %d, %Y")
+      </td>
+      </tr>
+
+      - item.questions.each do |question|
+        <tr><td style="border:0px"></td>
+        <td colspan=2>
+        = question.query
+        = ":"
+        - @response = Response.find(:first,:conditions=>['question_id = ? and purchase_id = ?',question.id,@purchase.id]) 
+        = @response.response
+        </td>
+        </tr>
+    <tr style="background-color:#fff">
+    <td>
+    = number_to_currency sum
+    </td>
+    <td colspan=2>Total Fee</td>
+    </tr>  
+
+    </table></center>
+
+- if @purchase.payment_status=="failed"
+  %h3 ALERT
+  %fieldset.order_form
+
+    %p Payment for this purchase order failed. Please try again using an alternative payment method or contact your payment provider to inquire about the cause of the payment failure.
+
+- if @purchase.payment_status=="unpaid" || @purchase.payment_status=="failed"
+
+  %h3 PAYMENT
+  %fieldset.order_form
+
+    - parameters = { |
+      :amount                 => sum, |
+      :description            => "Red Dirt Ruby Conference Purchase", |
+      :ipn_url                => "http://reddirtrubyconf.com/order/amazon_ipn", | 
+      :return_url             => "http://reddirtrubyconf.com/order/payment_success", |
+      :immediate_return       => true, |
+      :process_immediately    => true, |
+      :abandon_url            => "http://reddirtrubyconf.com/order/payment_failure", |
+      :reference_id           => @purchase.payment_code, |
+      :collect_shipping_address => false, |
+      } |
+
+    %p We are processing all payments for this conference through Amazon Payments. Amazon takes all major credit cards. All credit card information is stored securely for PCI compliance by Amazon.com. Please click Pay Now to be directed to the Amazon Payments portal. Upon completion, you will be redirected back to this website to finalize your purchase.
+  
+    %center
+      %table{:class=>'order_table'}
+        %tr
+          %td
+            = number_to_currency sum
+            Due
+          %td= simplepay_form_for(:standard, parameters, '<input type="image" src="https://authorize.payments.amazon.com/pba/images/GMPayNowWithLogo.png">')
+
+- elsif @purchase.payment_status=="processing"
+
+  %h3 PAYMENT
+  %fieldset.order_form
+
+    %p Payment for this order is being processed.
+
+- elsif @purchase.payment_status=="paid"
+
+  %h3 PAYMENT
+  %fieldset.order_form
+
+    %p 
+      Payment for this order has been processed. 
+      
+    %p  
+      We received a payment of 
+      = @purchase.payment_amount
+      on
+      = @purchase.payment_date.strftime('%I:%M %p, %A %B %d, %Y').gsub(/^0/,"")
+    %p
+      Your transaction code is
+      = @purchase.payment_transaction
+      
+    %p Please retain a copy of this receipt for your records, and bring a copy with you to the conference for registration purposes.
+  
+          

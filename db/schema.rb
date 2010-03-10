@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20100309062230) do
     t.string   "phone"
     t.string   "email"
     t.string   "agreed_to_mailings"
+    t.string   "payment_amount"
     t.string   "payment_transaction"
     t.string   "payment_code"
     t.string   "payment_status"

@@ -7,6 +7,7 @@ class CreatePurchases < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :agreed_to_mailings
+      t.decimal :payment_amount, :default=>0, :precision=>8, :scale=>2
       t.string :payment_transaction
       t.string :payment_code
       t.string :payment_status
