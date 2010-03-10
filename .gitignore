@@ -14,3 +14,4 @@ doc/plugins
 doc/*.dot
 db/*.sqlite3
 public/speaker_photos/*
+config/initializers/simplepay.rb

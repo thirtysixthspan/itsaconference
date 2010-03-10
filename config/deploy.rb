@@ -15,6 +15,7 @@ server "reddirtrubyconf.com", :app, :web, :db, :primary => true
 namespace :deploy do
   [:restart].each do |default_task|
     task default_task do 
+      top.upload "config/initializers/simplepay.rb", "#{release_path}/config/initializers/simplepay.rb", :via => :scp
       run "mkdir -p #{shared_path}/speaker_photos"
       run "ln -s #{shared_path}/speaker_photos #{release_path}/public/speaker_photos"
       run "/etc/init.d/reddirtrubyconf stop"
