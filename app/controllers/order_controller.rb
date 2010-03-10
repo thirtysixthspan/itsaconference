@@ -81,7 +81,7 @@ class OrderController < ApplicationController
   end
  
   def payment_failure
-    @code = params['referenceId']
+    code = params['referenceId']
     @purchase = Purchase.find_by_payment_code(code)
     return if !@purchase
     @purchase.payment_status="failed"
@@ -106,7 +106,7 @@ class OrderController < ApplicationController
         render :nothing=>true, :status=>200 and return unless purchase.payment_status!="paid"
         purchase.payment_transaction=params['transactionId']
         purchase.payment_status="paid"
-        purchase.payment_amount=params['transactionAmount']
+        purchase.payment_amount=params[:transactionAmount]
         purchase.payment_date=Time.now
         purchase.save
         PurchaseMailer.deliver_purchase_confirmed(purchase)
