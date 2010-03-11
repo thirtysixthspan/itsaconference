@@ -69,7 +69,7 @@ class OrderController < ApplicationController
   def payment_initiated
     code = params['referenceId']
 
-    if params['status'] != 'PS' && params['status'] == 'PI'
+    if params['status'] != 'PS' && params['status'] != 'PI'
       redirect_to url_for (:action => "payment_failure", :referenceId=>code) 
     end
     
