@@ -126,7 +126,7 @@ class OrderController < ApplicationController
         purchase.payment_status="failed"
         purchase.payment_date=Time.now
         purchase.save
-        PurchaseMailer.deliver_payment_failed(payment)
+        PurchaseMailer.deliver_payment_failed(purchase)
       end
 
     end
