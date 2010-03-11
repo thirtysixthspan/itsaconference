@@ -12,7 +12,7 @@ class PurchaseMailer < ActionMailer::Base
   end  
 
 
-  def paymnet_failed(purchase)
+  def payment_failed(purchase)
     @recipients = purchase.email
     @from = "registration@reddirtrubyconf.com"
     @bcc = "registration@reddirtrubyconf.com"
