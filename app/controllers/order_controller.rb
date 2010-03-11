@@ -44,7 +44,8 @@ class OrderController < ApplicationController
         @response.purchase_id = @purchase.id
         @response.question_id = key
         @response.response = value
-        @response.save
+        @purchased_item = PurchasedItem.find(:first,:conditions=>['item_id = ? and purchase_id = ?',@response.question.item.id,@purchase.id])
+        @response.save if @purchased_item
       end
             
       session[:id] = @purchase.id
@@ -70,7 +71,7 @@ class OrderController < ApplicationController
     code = params['referenceId']
 
     if params['status'] != 'PS' && params['status'] != 'PI'
-      redirect_to url_for (:action => "payment_failure", :referenceId=>code) 
+      redirect_to url_for(:action => "payment_failure", :referenceId=>code) 
     end
     
     @purchase = Purchase.find_by_payment_code(code)
