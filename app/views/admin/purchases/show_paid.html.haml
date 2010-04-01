@@ -1,0 +1,27 @@
+#dashboard
+  .info
+    Total Paid Registrants: 
+    %table.data_table
+      - @items.each do |item|
+        %tr
+          %td= item.id
+          %td= item.name
+          - purchased_items = PurchasedItem.find(:all,:conditions=>['item_id = ?',item.id])
+          %td= purchased_items.select {|x| Purchase.find_by_id(x.purchase_id).payment_status=='paid'}.size
+
+
+  .info
+    Paid Registrants: 
+    %table.data_table
+      - @purchases.each do |purchase|
+        %tr
+          %td.data_table= purchase.name
+          %td.data_table= purchase.affiliation
+          %td.data_table
+            %table.data_table
+              - purchase.purchased_items.each do |purchased_item|
+                %tr
+                  %td.data_table= purchased_item.item.name
+                  %td.data_table= purchased_item.value
+          
+        

@@ -359,3 +359,14 @@ input#search { border: 1px solid #999; font-size: 1.2em; padding: 3px; }
 .unrelate { background-position: -145px -129px; height: 15px; width: 15px; }
 
 /* @end */
+
+
+#dashboard .data_table {
+  margin: 10px;
+}
+
+#dashboard .data_table td {
+	padding: 5px;
+  border: 1px solid #000;
+}
+
