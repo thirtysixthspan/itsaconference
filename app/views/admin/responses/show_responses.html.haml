@@ -1,0 +1,22 @@
+#dashboard
+  .info
+    - @questions.each do |question|
+      = question.query
+      %table.data_table
+        - @acceptable_responses = question.acceptable_responses.split(',')
+        - @acceptable_responses.each do |acceptable_response|
+          - @responses = Response.find(:all, :conditions=>['question_id = ? and response = ?',question.id,acceptable_response])
+          %tr
+            %td= acceptable_response
+            %td= @responses.select{ |x| x.purchase.payment_status=='paid'}.size          
+
+    - @questions.each do |question|
+      = question.query
+      %table.data_table
+        - @responses = Response.find(:all, :conditions=>['question_id = ?',question.id])
+        - @responses.each do |response|
+          - if response.purchase.payment_status=='paid'
+            %tr
+              %td= response.purchase.name
+              %td= response.response          
+        

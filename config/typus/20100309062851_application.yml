@@ -39,7 +39,7 @@ Response:
     form: purchase, question, response
     show: id, purchase, question, response, created_at, updated_at
   actions:
-    index:
+    index: show_responses
     edit:
   order_by:
   relationships: 

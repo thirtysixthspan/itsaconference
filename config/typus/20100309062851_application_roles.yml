@@ -22,4 +22,4 @@
 admin:
   PurchasedItem: create, read, update, delete
   Question: create, read, update, delete
-  Response: create, read, update, delete
+  Response: create, read, update, delete, show_responses
