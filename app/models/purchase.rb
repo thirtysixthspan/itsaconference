@@ -3,6 +3,7 @@ class Purchase < ActiveRecord::Base
   has_many :purchased_items 
   has_many :items, :through => :purchased_items 
   has_many :responses
+  belongs_to :discount
 
   validates_presence_of :name, :on => :create
   validates_length_of :name, :in => 6..100, :too_short => "Your name is too short.", :too_long => "Your name is too long.", :on => :create
@@ -22,4 +23,33 @@ class Purchase < ActiveRecord::Base
       
   validates_acceptance_of :agreed_to_terms, :on=>:create, :message => "You must agree to the Terms and Conditions in order to make an order.", :on => :create
 
+  def discount
+    Discount.find_by_id(self.discount_id)
+  end
+
+  def total_fee
+    total = 0.0
+    self.items.each { |item| total += item.current_price }
+    return total
+  end
+
+  def discount_amount
+    if self.discount
+      return self.discount.percent / 100.0 * self.total_fee   
+    else
+      return 0
+    end
+  end
+
+  def discounted_fee
+    self.total_fee - self.discount_amount
+  end
+  
+  def regulate
+    if self.payment_amount==0
+      self.payment_amount = self.discounted_fee
+      self.save
+    end
+  end
+  
 end

@@ -1,0 +1,21 @@
+%h3 CONTACT
+%fieldset.order_form  
+  
+  %p
+    %label Name:   
+    = @purchase.name
+  %p
+    %label Job Title:
+    = @purchase.job_title
+  %p
+    %label Affiliation:
+    = @purchase.affiliation
+  %p
+    %label Phone:
+    = @purchase.phone
+  %p 
+    %label Email:
+    = @purchase.email
+  %p
+    %label Email Updates:
+    = @purchase.agreed_to_mailings ? "Yes" : "No"

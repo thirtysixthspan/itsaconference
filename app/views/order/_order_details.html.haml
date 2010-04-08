@@ -1,0 +1,40 @@
+%h3 YOUR PURCHASE ORDER
+%fieldset.order_form
+
+  %p
+    %table.order_table
+      %tr
+        %th Price
+        %th Item
+        %th Scheduled
+    
+      - bg = "#ccc"
+      - @purchase.items.each do |item|
+        %tr{:style=>"background-color:#{bg}"}
+          %td= number_to_currency item.current_price
+          %td= item.name 
+          %td= item.scheduled_time.strftime("%B %d, %Y")
+
+        - item.questions.each do |question|
+          %tr
+            %td{:style=>'border:0px'}
+            %td{:colspan=>'2'}
+              = question.query
+              = ":"
+              - @response = Response.find(:first,:conditions=>['question_id = ? and purchase_id = ?',question.id,@purchase.id]) 
+              = @response.response
+        
+      %tr{:style=>'background-color:#fff'}
+        %td= number_to_currency @purchase.total_fee
+        %td{:colspan=>'2'} Total Fee    
+      - if @purchase.discount
+        %tr{:style=>'background-color:#fff'}
+          %td
+            = "-"      
+            = number_to_currency @purchase.discount_amount
+          %td{:colspan=>'2'}
+            = number_to_percentage @purchase.discount.percent, :precision=>0
+            #{@purchase.discount.name} Discount
+        %tr{:style=>'background-color:#fff'}
+          %td= number_to_currency @purchase.payment_amount
+          %td{:colspan=>'2'} Discounted Fee    

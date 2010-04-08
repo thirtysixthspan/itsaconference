@@ -1,0 +1,20 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Discount:
+  fields:
+    list: name, code, percent, public
+    form: name, code, percent, public
+    show: id, name, code, percent, public, created_at, updated_at
+  actions:
+    index:
+    edit:
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+

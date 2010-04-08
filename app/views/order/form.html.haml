@@ -46,42 +46,48 @@
 
         %p
           <center><table  class="order_table">
-          <tr>
-          <th>Purchase?</th>
-          <th>Price</th>
-          <th>Item</th>
-          <th>Scheduled</th>
-          <th></th>
-          </tr>
-          
+          %tr
+            %th Purchase?
+            %th Price
+            %th Item
+            %th Scheduled
+            %th
+                      
           - @available_items = Item.find(:all, :conditions=>['quantity_available > 0'])
           - bg = "#ccc"
           - @available_items.each do |item|
-            = "<tr style='background-color:#{bg}'>"
-            <td>
-            = check_box "item", "#{item.id}"
-            </td>
-            <td>
-            = number_to_currency item.current_price
-            </td>
-            <td>
-            = item.name 
-            </td>
-            <td>
-            = item.scheduled_time.strftime("%B %d, %Y")
-            </td>
-            <td>
-            = link_to '(more detail)', {:controller=>'order', :action=>'item', :id=>item.id}, :target => "_blank"
-            </td>
-            </tr>
-            - item.questions.each do |question|
-              <tr><td style="border: 0px"></td>
-              <td colspan=4>
-              = question.query
-              = ":"
-              = collection_select :response, question.id, question.acceptable_responses.split(/,/), :chomp, :chomp
+            %tr{:style=>'background-color:#{bg}'}
+              <td>
+              = check_box "item", "#{item.id}"
               </td>
-              </tr>
+              <td>
+              = number_to_currency item.current_price
+              </td>
+              <td>
+              = item.name 
+              </td>
+              <td>
+              = item.scheduled_time.strftime("%B %d, %Y")
+              </td>
+              <td>
+              = link_to '(more detail)', {:controller=>'order', :action=>'item', :id=>item.id}, :target => "_blank"
+              </td>
+            - item.questions.each do |question|
+              %tr
+                <td style="border: 0px" colspan=2></td>
+                <td colspan=3>
+                = question.query
+                = ":"
+                = collection_select :response, question.id, question.acceptable_responses.split(/,/), :chomp, :chomp
+                </td>
+          %tr
+            %td{:colspan=>'5',:style=>'border-width:0'}  
+          %tr
+            %td
+              = text_field_tag :discount_code, nil, :size=>20, :style=>"width:65px"
+            %td
+              %label{:for => 'discount_code'} Discount Code
+            
           </table><center>
 
    

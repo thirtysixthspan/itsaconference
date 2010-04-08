@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  code: MyString
+  percent: 9.99
+  public: false
+
+two:
+  name: MyString
+  code: MyString
+  percent: 9.99
+  public: false

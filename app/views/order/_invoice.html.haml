@@ -1,70 +1,6 @@
-%h3 YOUR CONTACT
-%fieldset.order_form  
-  
-  %p
-    %label Name:   
-    = @purchase.name
-  %p
-    %label Job Title:
-    = @purchase.job_title
-  %p
-    %label Affiliation:
-    = @purchase.affiliation
-  %p
-    %label Phone:
-    = @purchase.phone
-  %p 
-    %label Email:
-    = @purchase.email
-  %p
-    %label Email Updates:
-    = @agreed_to_mailings ? "Yes" : "No"
+= render :partial=>'contact_details'
 
-
-%h3 YOUR PURCHASE ORDER
-%fieldset.order_form
-
-  %p
-    <center><table class="order_table">
-    <tr>
-    <th>Price</th>
-    <th>Item</th>
-    <th>Scheduled</th>
-    </tr>
-    
-    - bg = "#ccc"
-    - sum = 0
-    - @purchase.items.each do |item|
-      - sum+=item.current_price
-      = "<tr style='background-color:#{bg}'>"
-      <td>
-      = number_to_currency item.current_price
-      </td>
-      <td>
-      = item.name 
-      </td>
-      <td>
-      = item.scheduled_time.strftime("%B %d, %Y")
-      </td>
-      </tr>
-
-      - item.questions.each do |question|
-        <tr><td style="border:0px"></td>
-        <td colspan=2>
-        = question.query
-        = ":"
-        - @response = Response.find(:first,:conditions=>['question_id = ? and purchase_id = ?',question.id,@purchase.id]) 
-        = @response.response
-        </td>
-        </tr>
-    <tr style="background-color:#fff">
-    <td>
-    = number_to_currency sum
-    </td>
-    <td colspan=2>Total Fee</td>
-    </tr>  
-
-    </table></center>
+= render :partial=>'order_details'
 
 - if @purchase.payment_status=="failed"
   %h3 ALERT
@@ -78,7 +14,7 @@
   %fieldset.order_form
 
     - parameters = { |
-      :amount                 => sum, |
+      :amount                 => @purchase.payment_amount, |
       :description            => "Red Dirt Ruby Conference Purchase", |
       :ipn_url                => "http://reddirtrubyconf.com/order/amazon_ipn", | 
       :return_url             => "http://reddirtrubyconf.com/order/payment_initiated", |
@@ -95,7 +31,7 @@
       %table{:class=>'order_table'}
         %tr
           %td
-            = number_to_currency sum
+            = number_to_currency @purchase.payment_amount
             Due
           %td= simplepay_form_for(:standard, parameters, '<input type="image" src="https://authorize.payments.amazon.com/pba/images/GMPayNowWithLogo.png">')
 

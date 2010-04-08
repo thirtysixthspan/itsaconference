@@ -23,8 +23,11 @@ class OrderController < ApplicationController
     if @purchase.errors.empty?
       
       @purchase.payment_code = Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join )
+
+      @discount = Discount.find_by_code(params[:discount_code])
+      @purchase.discount_id = @discount.id  if @discount    
+  
       @purchase.payment_status = "unpaid"
-      @purchase.save
       
       params[:item].each do |key,value|
         if value=='1' 
@@ -48,6 +51,9 @@ class OrderController < ApplicationController
         @response.save if @purchased_item
       end
             
+      @purchase.payment_amount = @purchase.discounted_fee
+      @purchase.save
+
       session[:id] = @purchase.id
       redirect_to :action=>:finalize
     else
@@ -61,6 +67,8 @@ class OrderController < ApplicationController
 
   def recall
     @purchase = Purchase.find_by_payment_code(params[:id])
+    @purchase.regulate
+    
     redirect_to :action=>:not_found and return unless @purchase
   end
   
@@ -108,7 +116,6 @@ class OrderController < ApplicationController
         render :nothing=>true, :status=>200 and return unless purchase.payment_status!="paid"
         purchase.payment_transaction=params['transactionId']
         purchase.payment_status="paid"
-        purchase.payment_amount=params[:transactionAmount]
         purchase.payment_date=Time.now
         purchase.save
         

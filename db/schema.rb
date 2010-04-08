@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100309062230) do
+ActiveRecord::Schema.define(:version => 20100407214417) do
+
+  create_table "discounts", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "percent",    :limit => 10, :precision => 10, :scale => 0
+    t.boolean  "public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -67,13 +76,14 @@ ActiveRecord::Schema.define(:version => 20100309062230) do
     t.string   "phone"
     t.string   "email"
     t.string   "agreed_to_mailings"
-    t.string   "payment_amount"
+    t.decimal  "payment_amount",      :precision => 8, :scale => 2, :default => 0.0
     t.string   "payment_transaction"
     t.string   "payment_code"
     t.string   "payment_status"
     t.datetime "payment_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "discount_id"
   end
 
   create_table "questions", :force => true do |t|

@@ -1454,6 +1454,10 @@ img {
   color: #888;
 }
 
+.order_table  {
+  margin-left:auto;
+  margin-right:auto;
+}
 .order_table td {
   padding: 5px;
   border: 1px solid #000;

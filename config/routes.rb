@@ -76,6 +76,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :purchased_items
   map.resources :questions    
   map.resources :responses  
+  map.resources :discounts  
   
   #map.error '*url',
   #    :controller => 'error',
