@@ -65,6 +65,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'training', :controller=>"presentation", :action=>"training"
 
   map.connect 'news', :controller=>"front", :action=>"news"
+
+
+  map.latest_rdrc "rdrc",     :controller => "rdrc", :action => :index
+  map.rdrc        "rdrc/:id", :controller => "rdrc", :action => :show
   
   
   map.resources :presentations
