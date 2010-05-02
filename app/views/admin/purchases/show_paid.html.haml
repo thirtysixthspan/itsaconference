@@ -7,7 +7,7 @@
           %td= item.id
           %td= item.name
           - purchased_items = PurchasedItem.find(:all,:conditions=>['item_id = ?',item.id])
-          %td= purchased_items.select {|x| Purchase.find_by_id(x.purchase_id).payment_status=='paid'}.size
+          %td= purchased_items.select {|x| Purchase.find_by_id(x.purchase_id).payment_status=='paid' if Purchase.find_by_id(x.purchase_id) }.size
 
 
   .info

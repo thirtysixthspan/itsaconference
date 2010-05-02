@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20100407214417) do
     t.string   "phone"
     t.string   "email"
     t.string   "agreed_to_mailings"
-    t.decimal  "payment_amount",      :precision => 8, :scale => 2, :default => 0.0
+    t.string   "payment_amount"
     t.string   "payment_transaction"
     t.string   "payment_code"
     t.string   "payment_status"

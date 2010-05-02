@@ -9,7 +9,7 @@ Purchase:
     form: name, job_title, affiliation, phone, email, agreed_to_mailings, payment_amount, payment_transaction, payment_code, payment_status, payment_date
     show: id, name, job_title, affiliation, phone, email, agreed_to_mailings, payment_amount, payment_transaction, payment_code, payment_status, payment_date, created_at, updated_at
   actions:
-    index: show_paid
+    index: show_paid, roster, paid_roster
     edit:
   order_by:
   relationships: 

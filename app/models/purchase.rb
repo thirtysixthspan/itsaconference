@@ -26,10 +26,10 @@ class Purchase < ActiveRecord::Base
   def discount
     Discount.find_by_id(self.discount_id)
   end
-
+                  
   def total_fee
     total = 0.0
-    self.items.each { |item| total += item.current_price }
+    self.purchased_items.each { |item| total += item.value }
     return total
   end
 
@@ -50,6 +50,11 @@ class Purchase < ActiveRecord::Base
       self.payment_amount = self.discounted_fee
       self.save
     end
+  end
+  
+  def last_name
+    n = self.name.split(" ")
+    n[1]
   end
   
 end

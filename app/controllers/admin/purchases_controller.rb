@@ -26,5 +26,16 @@ class Admin::PurchasesController < Admin::MasterController
     @items = Item.find(:all)
   end
 
+  def roster
+    @purchases = Purchase.find(:all)
+    @items = Item.find(:all)
+  end
+
+  def paid_roster
+    @purchases = Purchase.find(:all,:conditions=>['payment_status = ?','paid'])
+    @items = Item.find(:all)
+    render :action=>:roster
+  end
+
 
 end
