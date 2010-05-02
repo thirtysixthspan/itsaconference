@@ -52,4 +52,9 @@ class Purchase < ActiveRecord::Base
     end
   end
   
+  def last_name
+    n = self.name.split(" ")
+    n[1]
+  end
+  
 end

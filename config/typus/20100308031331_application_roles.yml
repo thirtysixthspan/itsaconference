@@ -20,4 +20,4 @@
 #
 
 admin:
-  Purchase: create, read, update, delete, show_paid, roster
+  Purchase: create, read, update, delete, show_paid, roster, paid_roster

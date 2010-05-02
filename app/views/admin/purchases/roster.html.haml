@@ -7,30 +7,32 @@
         %td.data_table Position
         %td.data_table Affiliation
         %td.data_table Registered on 
-        %td.data_table Paid on
-        %td.data_table Payment Amount
         %td.data_table Payment Status
         %td.data_table Total Fee
         %td.data_table Discount
         %td.data_table Discounted Fee
+        %td.data_table
+        %td.data_table
+        %td.data_table Purchased Items
+        %td.data_table Responses
 
-      - @purchases.each do |purchase|
+      - @purchases.sort{ |a, b| a.last_name.downcase <=> b.last_name.downcase }.each do |purchase|
 
         %tr
           %td.data_table= purchase.name
           %td.data_table= purchase.job_title
           %td.data_table= purchase.affiliation
           %td.data_table= purchase.created_at.strftime("%I:%M%p %m/%d/%y")
-          %td.data_table= purchase.payment_date.strftime("%I:%M%p %m/%d/%y") if purchase.payment_date
-          %td.data_table= purchase.payment_amount if purchase.payment_date
           %td.data_table= purchase.payment_status
           %td.data_table= number_to_currency purchase.total_fee
           %td.data_table= purchase.discount.name if purchase.discount
           %td.data_table= number_to_currency purchase.discounted_fee
-          
+
           %td.data_table
-            %table.data_table
-              - purchase.purchased_items.each do |purchased_item|
-                %tr
-                  %td.data_table= purchased_item.item.name
-                  %td.data_table= purchased_item.value
+            - purchase.purchased_items.each do |purchased_item|
+              = "#{purchased_item.item.name}, "
+
+          %td.data_table
+            - purchase.responses.each do |response|
+              = "#{response.response}, "
+            
