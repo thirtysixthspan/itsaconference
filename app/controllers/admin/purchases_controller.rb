@@ -26,5 +26,10 @@ class Admin::PurchasesController < Admin::MasterController
     @items = Item.find(:all)
   end
 
+  def roster
+    @purchases = Purchase.find(:all)
+    @items = Item.find(:all)
+  end
+
 
 end

@@ -15,8 +15,9 @@
       %table.data_table
         - @responses = Response.find(:all, :conditions=>['question_id = ?',question.id])
         - @responses.each do |response|
-          - if response.purchase.payment_status=='paid'
-            %tr
-              %td= response.purchase.name
-              %td= response.response          
+          - if response.purchase
+            - if response.purchase.payment_status=='paid'
+              %tr
+                %td= response.purchase.name
+                %td= response.response          
         

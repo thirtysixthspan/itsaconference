@@ -26,10 +26,10 @@ class Purchase < ActiveRecord::Base
   def discount
     Discount.find_by_id(self.discount_id)
   end
-
+                  
   def total_fee
     total = 0.0
-    self.items.each { |item| total += item.current_price }
+    self.purchased_items.each { |item| total += item.value }
     return total
   end
 
