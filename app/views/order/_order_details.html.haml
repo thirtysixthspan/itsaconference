@@ -15,7 +15,7 @@
           %td= pitem.item.name 
           %td= pitem.item.scheduled_time.strftime("%B %d, %Y")
 
-        - item.questions.each do |question|
+        - pitem.item.questions.each do |question|
           %tr
             %td{:style=>'border:0px'}
             %td{:colspan=>'2'}
