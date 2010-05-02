@@ -8,7 +8,7 @@
           - @responses = Response.find(:all, :conditions=>['question_id = ? and response = ?',question.id,acceptable_response])
           %tr
             %td= acceptable_response
-            %td= @responses.select{ |x| x.purchase.payment_status=='paid'}.size          
+            %td= @responses.select{ |x| x.purchase && x.purchase.payment_status=='paid'}.size          
 
     - @questions.each do |question|
       = question.query
