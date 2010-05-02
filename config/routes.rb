@@ -59,6 +59,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'acknowledgements', :controller=>"front", :action=>"acknowledgements"
   map.connect 'privacy_policy', :controller=>"front", :action=>"privacy_policy"
   map.connect 'terms_of_use', :controller=>"front", :action=>"terms_of_use"
+
+  map.connect 'stream', :controller=>"front", :action=>"stream"
   
   map.connect 'keynotes', :controller=>"presentation", :action=>"keynotes"
   map.connect 'talks', :controller=>"presentation", :action=>"talks"
