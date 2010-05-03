@@ -1,13 +1,82 @@
-.grid_12#content#stream.padded
+.grid_12#content#schedule
   .spacer
-  .grid_1
-    .spacer
-  .grid_10.centered
-    %h1 Red Dirt Ruby Conference Live Stream
-    
-    <object type="application/x-shockwave-flash" height="480" width="720" id="live_embed_player_flash" data="http://www.justin.tv/widgets/live_embed_player.swf?channel=reddirtrubyconf&auto_play=true&consumer_key=nwj60ifvbG0sr7h3cEDEMg" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.justin.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="channel=reddirtrubyconf&auto_play=true&hostname=www.justin.tv&consumer_key=nwj60ifvbG0sr7h3cEDEMg" /></object>
-      
-  .grid_1
-    .spacer
+  .grid_12.centered
 
-  .spacer.clear
+    %h1 Red Dirt Ruby Conference Live Stream
+
+    .embed.centered
+      <object type="application/x-shockwave-flash" height="360" width="540" id="live_embed_player_flash" data="http://www.justin.tv/widgets/live_embed_player.swf?channel=reddirtrubyconf&auto_play=true&consumer_key=nwj60ifvbG0sr7h3cEDEMg" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.justin.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="channel=reddirtrubyconf&auto_play=true&hostname=www.justin.tv&consumer_key=nwj60ifvbG0sr7h3cEDEMg" /></object>
+
+    .clear.spacer
+
+    .pitch.centered
+      %h1 
+        Get the entire conference on video June 1st for $99
+      %p
+        Includes: <br/>
+        Online delivery of high definition videos of all 2 keynotes<br/>
+        Online delivery of high definition videos of all 16 conference presentations<br/>
+        Online delivery of high definition videos of all 4 training sessions<br/>
+      %h1
+        %a{:href=>'/register_to_attend'} Buy Now
+         
+    .clear.spacer
+
+    %h1 Live Stream Schedule
+
+  .grid_1 
+    .spacer
+  .grid_2
+    .time_block_r
+      .time_block_r_header
+        .time_block_r_body.hour
+          %ul
+            %li 8:30 AM
+            %li May 6th
+  .grid_9
+    .schedule_block_r
+      .schedule_block_r_header
+      .schedule_block_r_body.hour
+        = render :partial => "keynote", :locals => { :talk_id => 2 }
+  .clear 
+
+  .grid_1
+    .spacer
+  .grid_2
+    .time_block_g
+      .time_block_g_header
+        .time_block_g_body.halfhour
+          %ul
+            %li 7:00 PM
+            %li May 6th
+
+  .grid_9
+    .schedule_block_g
+      .schedule_block_g_header
+      .schedule_block_g_body.halfhour
+        %img{:src=>"/images/gregg.jpg", :class=>'photo left'}
+        %a{:href=>"http://ruby5.envylabs.com"}
+        %h1 
+          Ruby5 Podcast
+          .room Room 21 <br>  Convention Center
+        %h3 Gregg Pollack, EnvyLabs
+        %p Live recording of the Ruby5 Podcast.
+  .clear 
+
+  .grid_1
+    .spacer
+  .grid_2
+    .time_block_r
+      .time_block_r_header
+        .time_block_r_body.hour
+          %ul
+            %li 8:00 PM
+            %li May 6th
+  .grid_9
+    .schedule_block_r
+      .schedule_block_r_header
+      .schedule_block_r_body.hour
+        = render :partial => "keynote", :locals => { :talk_id => 1 }
+  .clear 
+
+  
