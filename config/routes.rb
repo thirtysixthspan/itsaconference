@@ -55,6 +55,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'sponsorship', :controller=>"front", :action=>"sponsorship"
   map.connect 'call_for_proposals', :controller=>"front", :action=>"call_for_proposals"
   map.connect 'register_to_attend', :controller=>"front", :action=>"register_to_attend"
+  map.connect 'purchase_video', :controller=>"front", :action=>"purchase_video"
   map.connect 'error', :controller=>"error"
   map.connect 'acknowledgements', :controller=>"front", :action=>"acknowledgements"
   map.connect 'privacy_policy', :controller=>"front", :action=>"privacy_policy"

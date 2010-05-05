@@ -140,17 +140,18 @@ img {
 }
 
 #call_to_action a {	  
-  background-image: url('/images/register_button.png');
+  background-image: url('/images/video_button.png');
   display:block;
   height: 60px;
   width: 176px;
 }
 
 #call_to_action a:hover {	  
-  background-image: url('/images/register_button_down.png');
+  background-image: url('/images/video_button_down.png');
   display:block;
   height: 60px;
   width: 176px;
+
 }
 
 

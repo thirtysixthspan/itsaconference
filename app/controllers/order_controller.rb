@@ -7,6 +7,10 @@ class OrderController < ApplicationController
     @purchase = Purchase.new
   end
 
+  def video
+    @purchase = Purchase.new
+  end
+
   def item
     @item = Item.find_by_id(params[:id]) 
   end

@@ -1,0 +1,100 @@
+.grid_12#order
+
+  .grid_2.spacer
+
+  .grid_8
+    
+    - form_for( :purchase, @purchase, :url => { :action => "submit" }) do |f|
+      = f.error_messages
+   
+      %h3 ORDER FORM
+      %fieldset  
+    
+        %p Thank you for your interest in the Red Dirt Ruby Conference.
+        %p Please complete the form below. All fields are mandatory.
+
+      %h3 CONTACT
+      %fieldset.order_form  
+        
+        %p
+          %label{:for => 'name'} Full Name
+          = f.text_field :name
+
+        %p
+          %label{:for => 'job_title'} Job title
+          = f.text_field :job_title
+        
+        %p
+          %label{:for => 'affiliation'} Company
+          = f.text_field :affiliation
+
+        %p
+          %label{:for => 'phone'} Phone
+          = f.text_field :phone
+
+        %p
+          %label{:for => 'email'} Email
+          = f.text_field :email
+
+        %p
+          <table><tr><td>
+          = f.check_box :agreed_to_mailings
+          </td><td>Please keep me informed of conference updates and future events via email.</td></tr></table>
+
+      %h3 CART
+      %fieldset.order_form
+
+        %p
+          <center><table  class="order_table">
+          %tr
+            %th Purchase?
+            %th Price
+            %th Item
+            %th Scheduled
+            %th
+                      
+          - item = Item.find_by_name('Video Delivery')
+          - bg = "#ccc"
+          %tr{:style=>'background-color:#{bg}'}
+            <td>
+            = check_box "item", "#{item.id}"
+            </td>
+            <td>
+            = number_to_currency item.current_price
+            </td>
+            <td>
+            = item.name 
+            </td>
+            <td>
+            = item.scheduled_time.strftime("%B %d, %Y")
+            </td>
+            <td>
+            = link_to '(more detail)', {:controller=>'order', :action=>'item', :id=>item.id}, :target => "_blank"
+            </td>
+            
+          </table><center>
+
+   
+      %h3 TERMS AND CONDITIONS
+      %fieldset  
+        
+        %p By registering you understand and agree that
+        %ol
+        
+          %li there will be no cancellations or refunds.
+
+          %li because of the dynamic nature of live events, the content and other details of the event are subject to last minute change without notification.
+            
+        %p  
+          <table><tr><td>
+          = f.check_box :agreed_to_terms
+          </td><td>
+          %label{:for=>:agreed_to_terms} I agree to these Terms and Conditions
+          </td></tr></table>
+                
+        %p= f.submit 'Proceed'
+
+  .grid_2.spacer
+
+  .spacer.clear
+  .spacer.clear
