@@ -46,13 +46,15 @@ class OrderController < ApplicationController
         end
       end
 
-      params[:response].each do |key,value|
-        @response = Response.new
-        @response.purchase_id = @purchase.id
-        @response.question_id = key
-        @response.response = value
-        @purchased_item = PurchasedItem.find(:first,:conditions=>['item_id = ? and purchase_id = ?',@response.question.item.id,@purchase.id])
-        @response.save if @purchased_item
+      if params[:response]
+        params[:response].each do |key,value|
+          @response = Response.new
+          @response.purchase_id = @purchase.id
+          @response.question_id = key
+          @response.response = value
+          @purchased_item = PurchasedItem.find(:first,:conditions=>['item_id = ? and purchase_id = ?',@response.question.item.id,@purchase.id])
+          @response.save if @purchased_item
+        end
       end
             
       @purchase.payment_amount = @purchase.discounted_fee
