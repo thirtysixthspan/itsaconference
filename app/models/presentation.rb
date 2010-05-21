@@ -38,9 +38,22 @@ class Presentation < ActiveRecord::Base
     self.photo.gsub("s/","s/large_photo_")
   end    
 
-
   def bio_photo
     self.photo.gsub("s/","s/bio_photo_")
   end    
+
+  def slides_url
+    return nil unless self.slides
+    if self.slides == ""
+      slides_file = "/speaker_slides/#{self.author.downcase.gsub(/ /,"_")}.pdf"
+      if File.exists?("#{RAILS_ROOT}/public/#{slides_file}")
+        return slides_file
+      else 
+        return nil
+      end
+    else 
+      return self.slides
+    end   
+  end
       
 end
