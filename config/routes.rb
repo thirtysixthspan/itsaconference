@@ -64,7 +64,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'stream', :controller=>"front", :action=>"stream"
   map.connect 'video/:resolution/:bit_rate', :controller=>"front", :action=>"video"
   map.connect 'video', :controller=>"front", :action=>"video", :resolution=>"480p", :bit_rate=>"hbr"
-  
+    
   map.connect 'keynotes', :controller=>"presentation", :action=>"keynotes"
   map.connect 'talks', :controller=>"presentation", :action=>"talks"
   map.connect 'training', :controller=>"presentation", :action=>"training"
