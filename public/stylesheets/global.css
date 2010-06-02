@@ -1464,6 +1464,23 @@ img {
   border: 1px solid #000;
 }
 
+.video {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.video_overlay {
+  position: absolute;
+  margin:auto;
+  width: 76px;
+  height: 76px;
+  background: transparent url('/player/button.png') top left no-repeat;
+  z-index:2;
+}
+
 
 
 

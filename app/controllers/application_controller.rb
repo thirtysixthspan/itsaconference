@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   def initialize
     @stylesheets = []
     @website_title = "Red Dirt Ruby Conference"
+    @website_video = false
   end
 
   def add_stylesheets

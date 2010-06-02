@@ -1,0 +1,21 @@
+<div class="video" style="padding:0;margin:auto; width:<%= width %>px; ">
+
+  <% r = rand(100000) %>
+
+
+  <a 
+  	href="<%= video %>" 
+  	style="display:block;width:<%= width %>px;height:<%= height %>px;" 
+  	id="player<%= r %>">
+    <img style="padding:0" width="<%= width %>px" height="<%= height %>px" src="<%= image %>" >
+    <div class="video_overlay" style=" top: <%= height/2-38 %>px; left: <%= width/2-38 %>px; "> </div>
+  </a>  
+
+  <script language="JavaScript">
+  	flowplayer("player<%= r %>", "/player/flowplayer-3.2.1.swf");
+  </script>
+
+
+</div>
+
+

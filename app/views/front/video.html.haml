@@ -1,0 +1,42 @@
+.grid_12#content.centered
+
+  .spacer
+
+  %h1 Red Dirt Ruby Conference Videos
+
+  .spacer
+
+  %h1 Dave Thomas Keynote  
+
+  .spacer
+  
+  - width = 854
+  - height = 480
+  - if @resolution == "360p" 
+    - width = 640
+    - height = 360
+    
+  = render :partial => "video", :locals => { :video =>"/keynote/dave_thomas_keynote.#{@resolution}.#{@bit_rate}.flv", :image=>"/test/video_screenshot.png", :width=>width, :height=>height }
+
+  %a{:href=>'/video/720p/lbr'} [720p]
+  %a{:href=>'/video/720p/hbr'} [720p HQ]
+  %a{:href=>'/video/480p/lbr'} [480p]
+  %a{:href=>'/video/480p/hbr'} [480p HQ]
+  %a{:href=>'/video/360p/lbr'} [360p]
+  %a{:href=>'/video/360p/hbr'} [360p HQ]
+  %a{:href=>'/video/dave_thomas_keynote.ipod.hbr.mp4'} [ipod download]
+    
+  .spacer
+
+  %h2 Get the video of the entire conference
+  %p
+    Includes: <br/>
+    Online delivery of high definition videos of all 2 keynotes<br/>
+    Online delivery of high definition videos of all 16 conference presentations<br/>
+    Online delivery of high definition videos of all 4 training sessions<br/>
+  %h1
+    %a{:href=>'/order/form',:style=>"text-decoration:underline"} Buy now for just $99
+       
+  .clear.spacer
+
+  

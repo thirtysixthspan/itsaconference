@@ -18,6 +18,8 @@ namespace :deploy do
       top.upload "config/initializers/simplepay.rb", "#{release_path}/config/initializers/simplepay.rb", :via => :scp
       run "mkdir -p #{shared_path}/speaker_photos"
       run "ln -s #{shared_path}/speaker_photos #{release_path}/public/speaker_photos"
+      run "ln -s #{shared_path}/videos #{release_path}/public/videos"
+      run "ln -s #{shared_path}/videos/dave_thomas_keynote #{release_path}/public/keynote"
       run "/etc/init.d/reddirtrubyconf stop"
       run "sleep 5"
       run "/etc/init.d/reddirtrubyconf start"
