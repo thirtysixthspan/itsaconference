@@ -1,0 +1,39 @@
+<div class="video" style="padding:0;margin:auto; width:<%= width %>px; ">
+
+  <% r = rand(100000) %>
+
+
+
+
+  <div class="spacer clear "></div>
+
+  <h1>Audio</h1>
+
+  <a 
+  	href="<%= video %>" 
+  	style="display:block;width:<%= width %>px;height:100px;" 
+  	id="player<%= r %>">
+    <div class="video_overlay" style=" top: 50px; left: <%= width/2-38 %>px; "> </div>
+  </a>  
+
+  <script language="JavaScript">
+  	flowplayer("player<%= r %>", "/player/flowplayer-3.2.1.swf");
+  </script>
+
+  <div class="spacer clear "></div>
+
+  <h1>Slides</h1>
+
+        <object id="__sse3219240" width="425" height="355">
+        <param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=beautifulcodeinrails3-greggpollack-100218130149-phpapp02&stripped_title=rails-3-beautiful-code-3219240" />
+        <param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/>
+        <embed name="__sse3219240" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=beautifulcodeinrails3-greggpollack-100218130149-phpapp02&stripped_title=rails-3-beautiful-code-3219240" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355">
+</embed></object>
+
+
+  <div class="spacer clear "></div>
+
+  <h1>Video</h1>
+  <p> We apologize that video is unavailable for this session. </p>
+
+</div>
