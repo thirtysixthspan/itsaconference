@@ -6,6 +6,6 @@
 
 %p 
   Your personalized link to view the conference videos is:
-  %a{:href=>"http://reddirtrubyconf.com/pv/#{@credential.code}"} "http://reddirtrubyconf.com/pv/#{@credential.code}"
+  %a{:href=>"http://reddirtrubyconf.com/pv/#{@credential.code}"} http://reddirtrubyconf.com/pv/#{@credential.code}
   
 = render :partial=>'email_footer'
