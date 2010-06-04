@@ -44,7 +44,7 @@
     - width = 640
     - height = 360
     
-  = render :partial => "video", :locals => { :video =>"/pv/source/#{@code}/#{@title}.#{@resolution}.#{@bit_rate}.flv", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
+  = render :partial => "video", :locals => { :video =>"/pv/source/#{@title}/#{@resolution}/#{@bit_rate}/#{code}", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
 
   %a{:href=>"/pv/#{@title}/720p/lbr/#{@code}"} [720p]
   %a{:href=>"/pv/#{@title}/720p/hbr/#{@code}"} [720p HQ]

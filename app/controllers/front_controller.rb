@@ -28,12 +28,12 @@ class FrontController < ApplicationController
   end
 
   def source
-    @title = params[:title] || "conference_intro"
-    @resolution = params[:resolution] || "480p"
-    @bit_rate = params[:bit_rate] || "hbr"  
-    @code = params[:code]
-    @credential = Credential::authenticate(@code)
-    render "access denied" and return unless @credential  
-    send_file("#{{RAILS_ROOT}/videos")
+    title = params[:title] || "conference_intro"
+    resolution = params[:resolution] || "480p"
+    bit_rate = params[:bit_rate] || "hbr"  
+    code = params[:code]
+    credential = Credential::authenticate(code)
+    render "access denied" and return unless credential  
+    send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.flv")
   
 end
