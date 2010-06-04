@@ -25,6 +25,11 @@ class FrontController < ApplicationController
     @credential = Credential::authenticate(@code)
     redirect_to :action=>'index' and return unless @credential  
     @access = @credential.access
+    conference_titles = ['conference_intro', 'jim_weirich_keynote', 'ruby_conf_sessions', 'rails3_conf_sessions', 'nosql_conf_sessions', 'ruby_conf_sessions', 'dave_thomas_keynote'] 
+    redirect_to :action=>'index' and return if @access=="Conference Pass" && !conference_titles.include?(@title)
+    training_titles = ['nosql_training', 'ruby_training', 'servers_training', 'rails3_training']
+    redirect_to :action=>'index' and return if @access=="Training Pass" && !training_titles.include?(@title)
+  
   end
 
   def source
