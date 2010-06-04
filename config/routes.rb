@@ -64,6 +64,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'stream', :controller=>"front", :action=>"stream"
   map.connect 'video/:resolution/:bit_rate', :controller=>"front", :action=>"video"
   map.connect 'video', :controller=>"front", :action=>"video", :resolution=>"480p", :bit_rate=>"hbr"
+
+  map.connect 'pv/:title/:resolution/:bit_rate/:code', :controller=>"front", :action=>"pv"
+  map.connect 'pv/:title/:resolution/:code', :controller=>"front", :action=>"pv", :bit_rate=>"hbr"
+  map.connect 'pv/:title/:code', :controller=>"front", :action=>"pv", :resolution=>"480p", :bit_rate=>"hbr"
+  map.connect 'pv/:code', :controller=>"front", :action=>"pv", :resolution=>"480p", :bit_rate=>"hbr"
     
   map.connect 'keynotes', :controller=>"presentation", :action=>"keynotes"
   map.connect 'talks', :controller=>"presentation", :action=>"talks"
@@ -86,6 +91,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :questions    
   map.resources :responses  
   map.resources :discounts  
+  map.resources :credentials
   
   #map.error '*url',
   #    :controller => 'error',

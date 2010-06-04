@@ -1,0 +1,21 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Credential:
+  fields:
+    list: owner, email, code, access, access_count
+    form: owner, email, code, access, access_count
+    show: id, owner, email, code, access, access_count, created_at, updated_at
+  actions:
+    index: generate_speaker_credentials, generate_attendee_credentials, email_all_codes
+    show: generate_code, email_code
+    edit: generate_code, email_code
+  order_by:
+  relationships: 
+  filters:
+  search:
+  application: itsaconference
+  description:
+

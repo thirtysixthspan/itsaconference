@@ -1,0 +1,11 @@
+%p
+  = @credential.owner
+  = ","
+
+%p The first Red Dirt Ruby Conference was held May 6th and 7th in Oklahoma City, Oklahoma. This innovative event was well received by attendees. We were fortunate to be able to make high quality videos of the event and are very glad to be able to make them available to you for viewing just one month after the conference. Below is a personalized link that will provide you access to the video for viewing on the conference website. Please keep this link secure as this link is the only means for you to access the videos online. Because the proceeds from video sales are one way we are recovering the costs of running the event, we ask you to please refrain from sharing this link with other individuals.  If you have any questions, please do not hesitate to contact <a href="mailto:support@reddirtrubyconf.com">Red Dirt Ruby Conference organizers</a> at any time.
+
+%p 
+  Your personalized link to view the conference videos is:
+  %a{:href=>"http://reddirtrubyconf.com/pv/#{@credential.code}"} "http://reddirtrubyconf.com/pv/#{@credential.code}"
+  
+= render :partial=>'email_footer'

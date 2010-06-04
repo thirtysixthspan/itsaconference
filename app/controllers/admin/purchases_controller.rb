@@ -37,5 +37,34 @@ class Admin::PurchasesController < Admin::MasterController
     render :action=>:roster
   end
 
+  def generate_attendee_credential
+    purchase = Purchase.find_by_id(params[:id])
+    redirect_to :action=>'list' unless purchase
+    redirect_to :action=>'list' unless purchase.payment_status=='paid'
+    
+    credential = Credential.new
+    credential.owner = purchase.name
+    credential.email = purchase.email
 
+    purchased_item_names = purchase.purchased_items.collect {|purchased_item| purchased_item.item.name}
+    if purchased_item_names.include?('Conference Pass')
+      credential.access = 'Conference Pass'
+    end   
+    if purchased_item_names.include?('Training Pass')
+      credential.access = 'Training Pass'
+    end   
+    if purchased_item_names.include?('Conference Pass') && purchased_item_names.include?('Training Pass')
+      credential.access = 'Video Delivery'
+    end
+    if purchased_item_names.include?('Video Delivery')
+      credential.access = 'Video Delivery'
+    end
+
+    credential.access_count = 0
+    credential.generate_code
+    credential.save
+    
+    redirect_to :controller=>'credentials', :action=>'show', :id=>credential.id
+  end
+  
 end

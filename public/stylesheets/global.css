@@ -1481,7 +1481,11 @@ img {
   z-index:2;
 }
 
-
+.pv ul {
+	text-align: left;
+	width: 400px;
+	margin:auto;
+}
 
 
 

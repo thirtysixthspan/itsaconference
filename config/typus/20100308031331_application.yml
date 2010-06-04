@@ -10,7 +10,8 @@ Purchase:
     show: id, name, job_title, affiliation, phone, email, agreed_to_mailings, payment_amount, payment_transaction, payment_code, payment_status, payment_date, created_at, updated_at
   actions:
     index: show_paid, roster, paid_roster
-    edit:
+    edit: generate_attendee_credential
+    show: generate_attendee_credential
   order_by:
   relationships: 
   filters:

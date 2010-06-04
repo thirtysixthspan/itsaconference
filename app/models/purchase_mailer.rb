@@ -35,4 +35,15 @@ class PurchaseMailer < ActionMailer::Base
     @charset = "iso-8859-1"
   end  
 
+  def purchase_access_code(credential)
+    @recipients = credential.email
+    @from = "registration@reddirtrubyconf.com"
+    @bcc = "registration@reddirtrubyconf.com"
+    @subject = "[RedDirtRubyConf] Conference videos are now available online"
+    @sent_on = Time.now
+    @body[:credential]=credential
+    @content_type = "text/html"
+    @charset = "iso-8859-1"
+  end  
+
 end

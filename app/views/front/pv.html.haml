@@ -1,0 +1,58 @@
+.grid_12#content.centered.pv
+
+  .spacer
+
+  %h1 Red Dirt Ruby Conference Videos
+
+  .spacer
+
+  %ul
+    - if @access=="Conference Pass" || @access=="Video Delivery"
+      %li
+        %a{:href=>"/pv/conference_intro/480p/hbr/#{@code}"} Conference Introduction by James Edward Gray II
+      %li
+        %a{:href=>"/pv/jim_weirich_keynote/480p/hbr/#{@code}"} Jim Weirich Keynote
+      %li
+        %a{:href=>"/pv/ruby_conf_sessions/480p/hbr/#{@code}"} Ruby Conference Sessions and Panel Discussion
+      %li
+        %a{:href=>"/pv/rails_conf_sessions/480p/hbr/#{@code}"} Rails Conference Sessions and Panel Discussion
+      %li
+        %a{:href=>"/pv/nosql_conf_sessions/480p/hbr/#{@code}"} NoSQL Conference Sessions and Panel Discussion
+      %li
+        %a{:href=>"/pv/ruby_conf_sessions/480p/hbr/#{@code}"} Servers Conference Sessions and Panel Discussion
+      %li
+        %a{:href=>"/pv/dave_thomas_keynote/480p/hbr/#{@code}"} Dave Thomas Keynote
+
+    - if @access=="Training Pass" || @access=="Video Delivery"
+      %li
+        %a{:href=>"/pv/nosql_training/480p/hbr/#{@code}"} NoSQL Training
+      %li
+        %a{:href=>"/pv/ruby_training/480p/hbr/#{@code}"} Ruby Training
+      %li
+        %a{:href=>"/pv/servers_training/480p/hbr/#{@code}"} Servers Training
+      %li
+        %a{:href=>"/pv/rails3_training/480p/hbr/#{@code}"} Rails 3 Training
+      
+  .spacer
+  
+  %h1= @title.gsub(/_/,' ').split.collect {|s| s.capitalize}.join(' ')
+
+
+  - width = 854
+  - height = 480
+  - if @resolution == "360p" 
+    - width = 640
+    - height = 360
+    
+  = render :partial => "video", :locals => { :video =>"/pv/source/#{@code}/#{@title}.#{@resolution}.#{@bit_rate}.flv", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
+
+  %a{:href=>"/pv/#{@title}/720p/lbr/#{@code}"} [720p]
+  %a{:href=>"/pv/#{@title}/720p/hbr/#{@code}"} [720p HQ]
+  %a{:href=>"/pv/#{@title}/480p/lbr/#{@code}"} [480p]
+  %a{:href=>"/pv/#{@title}/480p/hbr/#{@code}"} [480p HQ]
+  %a{:href=>"/pv/#{@title}/360p/lbr/#{@code}"} [360p]
+  %a{:href=>"/pv/#{@title}/360p/hbr/#{@code}"} [360p HQ]
+    
+  .clear.spacer
+
+  

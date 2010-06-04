@@ -20,4 +20,4 @@
 #
 
 admin:
-  Purchase: create, read, update, delete, show_paid, roster, paid_roster, generate_attendee_credential
+  Credential: create, read, update, delete, generate_code, email_code, generate_speaker_credentials, generate_attendee_credentials, email_all_codes
