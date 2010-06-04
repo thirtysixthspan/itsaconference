@@ -25,9 +25,9 @@
 
     - if @access=="Training Pass" || @access=="Video Delivery"
       %li
-        %a{:href=>"/pv/nosql_training/480p/hbr/#{@code}"} NoSQL Training
+        %a{:href=>"/pv/nosql_training/720p/hbr/#{@code}"} NoSQL Training
       %li
-        %a{:href=>"/pv/ruby_training/480p/hbr/#{@code}"} Ruby Training
+        %a{:href=>"/pv/ruby_training/720p/hbr/#{@code}"} Ruby Training
       %li
         %a{:href=>"/pv/servers_training/480p/hbr/#{@code}"} Servers Training
       %li
@@ -46,11 +46,17 @@
     
   = render :partial => "video", :locals => { :video =>"/source/#{@title}/#{@resolution}/#{@bit_rate}/#{@code}", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
 
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.720p.lbr.flv")
   %a{:href=>"/pv/#{@title}/720p/lbr/#{@code}"} [720p]
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.720p.hbr.flv")
   %a{:href=>"/pv/#{@title}/720p/hbr/#{@code}"} [720p HQ]
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.480p.lbr.flv")
   %a{:href=>"/pv/#{@title}/480p/lbr/#{@code}"} [480p]
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.480p.hbr.flv")
   %a{:href=>"/pv/#{@title}/480p/hbr/#{@code}"} [480p HQ]
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.360p.lbr.flv")
   %a{:href=>"/pv/#{@title}/360p/lbr/#{@code}"} [360p]
+  - if File.exist("#{rails_root}/videos/#{@title}/#{@title}.360p.hbr.flv")
   %a{:href=>"/pv/#{@title}/360p/hbr/#{@code}"} [360p HQ]
     
   .clear.spacer
