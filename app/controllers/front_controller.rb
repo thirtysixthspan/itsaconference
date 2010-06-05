@@ -40,7 +40,7 @@ class FrontController < ApplicationController
     credential = Credential::authenticate(code)
     render "access denied" and return unless credential  
     if resolution=="ipod"
-      send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mpg")
+      send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mp4")
     else
       send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.flv")
     end
