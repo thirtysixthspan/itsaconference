@@ -9,7 +9,7 @@ module ActionController
         options[:start]    ||= "0"
         options[:length]   ||= File.size(path) - options[:start].to_i
         options[:filename] ||= File.basename(path) unless options[:url_based_filename]
-        send_file_headers! options
+        send_file_headers! options if options[:start]=="0"
 
         render :status => options[:status], :text => Proc.new { |response, output|
           logger.info "Streaming file #{path}" unless logger.nil?
