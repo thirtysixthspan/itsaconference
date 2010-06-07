@@ -12,7 +12,21 @@
   </a>  
 
   <script language="JavaScript">
-  	flowplayer("player<%= r %>", "/player/flowplayer-3.2.1.swf");
+  	flowplayer("player<%= r %>", "/player/flowplayer-3.2.1.swf", {
+
+    	// configure clip to use "lighthttpd" plugin for providing video data
+    	clip: {
+    		url: '<%= video %>',
+    		provider: 'lighttpd'
+    	},
+
+    	// streaming plugins are configured normally under the plugins node
+    	plugins: {
+    		lighttpd: {
+    			url: '/player/flowplayer.pseudostreaming-3.2.2.swf'
+    		}
+    	}
+    });
   </script>
 
 

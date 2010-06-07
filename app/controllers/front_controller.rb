@@ -1,3 +1,5 @@
+require 'lib/stream.rb'
+
 class FrontController < ApplicationController
 
   def index
@@ -29,9 +31,8 @@ class FrontController < ApplicationController
     redirect_to :action=>'index' and return if @access=="Conference Pass" && !conference_titles.include?(@title)
     training_titles = ['conference_intro','nosql_training', 'ruby_training', 'servers_training', 'rails3_training']
     redirect_to :action=>'index' and return if @access=="Training Pass" && !training_titles.include?(@title)
-  
   end
-
+  
   def source
     title = params[:title] || "conference_intro"
     resolution = params[:resolution] || "480p"
@@ -42,7 +43,7 @@ class FrontController < ApplicationController
     if resolution=="ipod"
       send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mp4")
     else
-      send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.flv")
+      stream_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.flv", {:start=>params[:start]})
     end
   end
 end
