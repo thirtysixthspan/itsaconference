@@ -41,7 +41,7 @@
   - height = 480
   - if @resolution == "360p" 
     - width = 640
-    - height = 360
+    - height = 360s
 
   - if @title=="rails3_training"
 
@@ -63,7 +63,7 @@
       %a{:href=>"/pv/#{@title}/360p/lbr/#{@code}"} [360p]
     - if File.exist?("#{RAILS_ROOT}/videos/#{@title}/#{@title}.360p.hbr.flv")
       %a{:href=>"/pv/#{@title}/360p/hbr/#{@code}"} [360p HQ]
-    - if File.exist?("#{RAILS_ROOT}/videos/#{@title}/#{@title}.ipod.hbr.mp4")
+    - if File.exist?("#{RAILS_ROOT}/videos/#{@title}/#{@title}.ipod.hbr.mov")
       %a{:href=>"/source/#{@title}/ipod/hbr/#{@code}"} [ipod/ipad/iphone download]
     
   .clear.spacer
