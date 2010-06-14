@@ -20,6 +20,7 @@ namespace :deploy do
       run "ln -s #{shared_path}/speaker_photos #{release_path}/public/speaker_photos"
       run "ln -s #{shared_path}/videos #{release_path}/videos"
       run "ln -s #{shared_path}/videos/dave_thomas_keynote #{release_path}/public/keynote"
+      run "ln -s #{shared_path}/videos/nosql_training #{release_path}/public/nosql_training"
       run "/etc/init.d/reddirtrubyconf stop"
       run "sleep 5"
       run "/etc/init.d/reddirtrubyconf start"
