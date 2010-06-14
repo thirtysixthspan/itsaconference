@@ -6,7 +6,7 @@
 
   .spacer
 
-  %h1 Dave Thomas Keynote  
+  %h1 NoSQL Training
 
   .spacer
   
@@ -16,7 +16,7 @@
     - width = 640
     - height = 360
     
-  = render :partial => "video", :locals => { :video =>"/keynote/dave_thomas_keynote.#{@resolution}.#{@bit_rate}.flv", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
+  = render :partial => "video", :locals => { :video =>"/nosql_training/nosql_training.#{@resolution}.#{@bit_rate}.flv", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
 
   %a{:href=>'/video/720p/lbr'} [720p]
   %a{:href=>'/video/720p/hbr'} [720p HQ]
@@ -34,6 +34,19 @@
   %h1
     %a{:href=>'/order/form',:style=>"text-decoration:underline"} Buy now for just $99
        
+  .clear.spacer
+
+  %h1 Dave Thomas Keynote  
+
+  .spacer
+ 
+  = render :partial => "video", :locals => { :video =>"/keynote/dave_thomas_keynote.#{@resolution}.#{@bit_rate}.flv", :image=>"/player/video_titleslide.png", :width=>width, :height=>height }
+
+  %a{:href=>'/video/720p/lbr'} [720p]
+  %a{:href=>'/video/720p/hbr'} [720p HQ]
+  %a{:href=>'/video/480p/hbr'} [480p HQ]
+  %a{:href=>'/video/360p/hbr'} [360p HQ]
+    
   .clear.spacer
 
   
