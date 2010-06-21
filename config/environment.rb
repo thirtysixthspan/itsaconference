@@ -42,4 +42,6 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'simplepay'
 
+  XAccelRedirect::Plugin.replace_send_file!
+
 end
