@@ -41,7 +41,14 @@ class FrontController < ApplicationController
     credential = Credential::authenticate(code) 
     render "access denied" and return unless credential  
     if resolution=="ipod"
-      send_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mp4")
+      response.headers.merge!(
+          'Content-Length'            => File.size("/srv/www/reddirtrubyconf.com/shared/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mp4"),
+          'Content-Type'              => 'application/octet-stream',
+          'Content-Disposition'       => "attachment; filename=#{title}.#{resolution}.#{bit_rate}.mp4",
+          'Content-Transfer-Encoding' => 'binary',
+          'X-Accel-Redirect' => "/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.mp4"
+      )
+      render :nothing=>true
     else
       stream_file("#{RAILS_ROOT}/videos/#{title}/#{title}.#{resolution}.#{bit_rate}.flv", {:start=>params[:start]})
     end
